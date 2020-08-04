@@ -1,10 +1,10 @@
-## Models Needed
+## Models
 
 
-## Endpoints Needed
+## Enpoints
 
 
-## Templates Needed
+## Templates
 
 
 ## Wireframes/Sketches
