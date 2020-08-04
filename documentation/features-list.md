@@ -1,6 +1,6 @@
-**Features List**
+## Features List
 
-**MVPs**
+## MVPs
 
 
 *Servers*
@@ -20,7 +20,7 @@ As a person who enjoys chatting with others about my topic of choice, I want to 
 
 As a person who values discretion, or would like to speak directly to one particular user, I want to be able to message a member of a server directly so that I am am able to have a one-on-one conversation.
 
-**Stretch Goals**
+## Stretch Goals
 
 *Online Activity*
 
