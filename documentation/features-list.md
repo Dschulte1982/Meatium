@@ -26,6 +26,10 @@ As a person who values discretion, or would like to speak directly to one partic
 
 As a person who wants know who is available to chat with, I want to be able to identify who is currently online so that I can tag and engage them in conversation.
 
+*Replies*
+
+As a person who wants to add my thoughts to an exsiting comment, I want to be able to reply to a message so that I can add additional comments while maintaining the context of the topic at-hand.
+
 *Reactions*
 
 As a person who wants to reply to the messages of other users, I want to be able to add a reaction to a message in the form of a reaction so that I can acknowledge their statement without a direct-reply of my own.
