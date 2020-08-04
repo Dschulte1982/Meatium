@@ -4,6 +4,7 @@
 
 
 *Servers*
+
 As a person that has a particular interest, I want to be able to join a serverbased-upon that interest so that I can engage with others who share that interest.
 
 *Channels with Servers*
