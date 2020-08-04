@@ -7,20 +7,20 @@ Below is an overview of the MVPs we intend to implement with this project, as we
 ## MVPs
 
 
-*Servers*
+*Stories*
 
-* As a person that has a particular interest, I want to be able to join a serverbased-upon that interest so that I can engage with others who share that interest.
+* As a person that has particular interests, I want the ability to find and view articles so that I can educate myself on related topics.
 
-*Channels with Servers*
+*Commenting on Stories*
 
-* As a member of a particular server, I want to be able to compartmentalize conversations into more specific topics so that I my conversations don't get lost in the noise.
+* As a person that wants to share my thoughts, I want to be able to leave comments on an article so that my feedback can be seen by everyone else who engages in the discussion in a particular story.
 
-*Live Chat*
+*Follows and Feeds*
 
 * As a person who enjoys chatting with others about my topic of choice, I want to be able to add to the conversation in real-time and see those messages reflected in the server chat.
 
 
-*Direct Messaging*
+*Likes*
 
 * As a person who values discretion, or would like to speak directly to one particular user, I want to be able to message a member of a server directly so that I am am able to have a one-on-one conversation.
 
@@ -28,14 +28,10 @@ Below is an overview of the MVPs we intend to implement with this project, as we
 
 ## Stretch Goals
 
-*Online Activity*
+*Topics/Categories*
 
 * As a person who wants know who is available to chat with, I want to be able to identify who is currently online so that I can tag and engage them in conversation.
 
-*Replies*
+*Bookmarks*
 
 * As a person who wants to add my thoughts to an exsiting comment, I want to be able to reply to a message so that I can add additional comments while maintaining the context of the topic at-hand.
-
-*Reactions*
-
-* As a person who wants to reply to the messages of other users, I want to be able to add a reaction to a message in the form of a reaction so that I can acknowledge their statement without a direct-reply of my own.
