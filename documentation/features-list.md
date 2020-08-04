@@ -19,3 +19,13 @@ As a person who enjoys chatting with others about my topic of choice, I want to 
 *Direct Messaging*
 
 As a person who values discretion, or would like to speak directly to one particular user, I want to be able to message a member of a server directly so that I am am able to have a one-on-one conversation.
+
+**Stretch Goals**
+
+*Online Activity*
+
+As a person who wants know who is available to chat with, I want to be able to identify who is currently online so that I can tag and engage them in conversation.
+
+*Reactions*
+
+As a person who wants to reply to the messages of other users, I want to be able to add a reaction to a message in the form of a reaction so that I can acknowledge their statement without a direct-reply of my own.
