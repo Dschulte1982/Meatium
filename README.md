@@ -1,2 +1,2 @@
-# pwnos
-A Discord-like communications service for gamers and lovers of Roman mythology.
+# Meatium
+A news and information website for food-lovers around the world.
