@@ -17,12 +17,12 @@ Below is an overview of the MVPs we intend to implement with this project, as we
 
 *Follows and Feeds*
 
-* As a person who enjoys chatting with others about my topic of choice, I want to be able to add to the conversation in real-time and see those messages reflected in the server chat.
+* As a person who has a particular interest, I want to be able to be exposed to more things regarding that interest so that I can share it and engage with other like-minded individuals.
 
 
 *Likes*
 
-* As a person who values discretion, or would like to speak directly to one particular user, I want to be able to message a member of a server directly so that I am am able to have a one-on-one conversation.
+* As a person who wants to engage with content, I want to be able to add a reaction so that I can express my opinion.
 
 ---
 
