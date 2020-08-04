@@ -30,8 +30,8 @@ Below is an overview of the MVPs we intend to implement with this project, as we
 
 *Topics/Categories*
 
-* As a person who wants know who is available to chat with, I want to be able to identify who is currently online so that I can tag and engage them in conversation.
+* As a reader with particular tastes, I want to be able to both search articles by topic and also browse a specific topic for the most popular/recent articles on that topic so that I feel that the website is relevant to my interests.
 
 *Bookmarks*
 
-* As a person who wants to add my thoughts to an exsiting comment, I want to be able to reply to a message so that I can add additional comments while maintaining the context of the topic at-hand.
+* As a busy reader with demands on my time, I want to be able to bookmark an article for reading later so that it doesn't get buried in the feed of new articles coming in.
