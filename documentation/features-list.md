@@ -9,6 +9,7 @@ As a person that has a particular interest, I want to be able to join a serverba
 
 *Channels with Servers*
 
+As a member of a particular server, I want to be able to compartmentalize conversations into more specific topics so that I my conversations don't get lost in the noise.
 
 *Live Chat*
 
