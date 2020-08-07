@@ -19,4 +19,4 @@ The first interaction a user will have with this product is interacting with the
 
 ![Sign-In Menu](../../images/sign-in.png)
 
-![Sign-Up Menu]((../../images/sign-up.png)
+![Sign-Up Menu](../../images/sign-up.png)
