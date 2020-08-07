@@ -45,6 +45,8 @@ The stories
 
 
 ## Templates
-
+  * article-list.pug
+  * articles-new.pug
+  * articles-detail.pug
 
 ## Wireframes/Sketches
