@@ -36,6 +36,6 @@ This feature will the user to select topics and categories they find interesting
 
 
 ## Templates
-
+  * topics-list.pug
 
 ## Wireframes/Sketches
