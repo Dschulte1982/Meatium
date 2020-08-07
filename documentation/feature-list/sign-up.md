@@ -16,3 +16,7 @@ The first interaction a user will have with this product is interacting with the
   * signup-form.pug
 
 ## Wireframes/Sketches
+
+![Sign-In Menu](./images/sign-in.png)
+
+![Sign-Up Menu](./image/sign-up.png)
