@@ -18,7 +18,7 @@
     * belongs to one user (the author)
     * has many comments in response to it
     * *(belongs to one category)?*
-    
+
 ### Comments
   * A comment should be connected to a specific article and one user with a message and possibly able to reply to another comment?
   * Relationships:
@@ -27,10 +27,16 @@
     * *(belongs to one other comment to which it is replying)?*
 
 
+---
+
+
 ## Enpoints
 
 * /posts/:id/comment/:id  -- Add a comment to an existing story page.
 * /posts/:id/comment/:id/delete  -- Delete a posted comment.
+
+
+---
 
 
 ## Templates

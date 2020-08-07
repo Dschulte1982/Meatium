@@ -1,8 +1,10 @@
 ## General Details
 
-The stories
+This feature allows a user to view stories, both public and published. A user is able to post new stories, edit existing stories, view their own profile page, and browse the stories of others.
 
 ## Models
+
+---
 
 
 ## Endpoints
@@ -14,6 +16,9 @@ The stories
 * /new-story  -- Story creation.
 * /edit-story  -- Editing existing story.
 * /users/:id  -- Profile page
+
+
+---
 
 
 ## Templates

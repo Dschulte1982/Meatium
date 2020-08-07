@@ -1,3 +1,6 @@
+## General Details
+This feature allows one user to follow another, increasing the prominence of stories from that user in their personal feed.
+
 ## Models
 
 ### Users
@@ -6,7 +9,7 @@
     * has many articles they have authored
     * has many other users they have followed
     * *(belongs to many categories through their interests)?*
-    
+
 ### Follows
   * A user should be able to follow other users so that their articles will show up in a feed.
   * Relationships:
@@ -19,10 +22,17 @@
     * belongs to one user (the author)
     * *(belongs to one category)?*
 
+
+---
+
+
 ## Endpoints
 
 * /users/:id/follow  -- Follow an existing user.
 * /users/:id/unfollow  -- Cease following an existing user.
+
+---
+
 
 ## Templates
 
