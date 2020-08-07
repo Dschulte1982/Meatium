@@ -25,6 +25,8 @@
 * /users/:id/unfollow  -- Cease following an existing user.
 
 ## Templates
-
+  * interests-list.pug
+  * interests-new.pug
+  * interests-edit.pug
 
 ## Wireframes/Sketches
