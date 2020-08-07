@@ -45,3 +45,5 @@ This feature will allow a user to leave a comment in the story comments thread. 
   * comments-edit.pug
 
 ## Wireframes/Sketches
+
+![an example comments bar from medium.com](../images/comments-sidebar.png)

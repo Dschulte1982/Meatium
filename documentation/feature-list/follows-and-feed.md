@@ -40,3 +40,5 @@ This feature allows one user to follow another, increasing the prominence of sto
   * interests-edit.pug
 
 ## Wireframes/Sketches
+
+![an example image from the medium.com page showing users you follow with suggestions](../images/customize-your-interests-people.png)

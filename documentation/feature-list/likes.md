@@ -37,3 +37,5 @@ The likes feature will allow a user to click the like icon on a story, and have 
   * reactions-edit.pug
 
 ## Wireframes/Sketches
+
+![an example comments bar from medium.com](../images/comments-sidebar.png)
