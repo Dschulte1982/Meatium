@@ -13,5 +13,6 @@ The first interaction a user will have with this product is interacting with the
 
 ## Templates
 
+  * signup-form.pug
 
 ## Wireframes/Sketches
