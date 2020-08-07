@@ -45,7 +45,7 @@ The stories
 
 
 ## Templates
-  * article-list.pug
+  * articles-list.pug
   * articles-new.pug
   * articles-detail.pug
 
