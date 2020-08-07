@@ -17,6 +17,6 @@ The first interaction a user will have with this product is interacting with the
 
 ## Wireframes/Sketches
 
-![Sign-In Menu](/images/sign-in.png)
+![Sign-In Menu](../../images/sign-in.png)
 
-![Sign-Up Menu](/image/sign-up.png)
+![Sign-Up Menu]((../../images/sign-up.png)
