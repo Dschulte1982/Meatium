@@ -23,6 +23,7 @@
 * /posts/:id/unlike  -- Un-like a story.
 
 ## Templates
-
+  * reactions-new.pug
+  * reactions-edit.pug
 
 ## Wireframes/Sketches
