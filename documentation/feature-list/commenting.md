@@ -1,6 +1,5 @@
 ## General Details
-
-
+This feature will allow a user to leave a comment in the story comments thread. They will have the ability to post a new comment, edit an existing comment, or delete their comment altogether.
 
 ## Models
 
@@ -33,6 +32,7 @@
 ## Enpoints
 
 * /posts/:id/comment/:id  -- Add a comment to an existing story page.
+* /posts/:id/comment:/id/edit -- Edit an existing comment.
 * /posts/:id/comment/:id/delete  -- Delete a posted comment.
 
 

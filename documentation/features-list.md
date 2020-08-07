@@ -1,11 +1,14 @@
 ## Features List
 
-Below is an overview of the MVPs we intend to implement with this project, as well as stretch goals ordered by realistic expectations on time-of-completion within the project deadline. 
+Below is an overview of the MVPs we intend to implement with this project, as well as stretch goals ordered by realistic expectations on time-of-completion within the project deadline.
 
 ---
 
 ## MVPs
 
+*Sign-up*
+
+* As a new user who wants to engage with the content on this website, I want the ability to create my own account so that I can view topics, post stories, and follow other authors.
 
 *Stories*
 
