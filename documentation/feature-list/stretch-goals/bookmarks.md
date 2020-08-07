@@ -36,3 +36,5 @@ This feature will allow a user to bookmark an article, which will be able to be 
   * bookmarks-list.pug
 
 ## Wireframes/Sketches
+
+![example bookmarks from medium.com](../../images/bookmarks.png)
