@@ -40,5 +40,5 @@ This feature will the user to select topics and categories they find interesting
 
 ## Wireframes/Sketches
 
-![example of topics from Medium.com](../images/explore-topics.png)
-![example of category from Medium.com](../images/programming-topic.png)
+![example of topics from Medium.com](../../images/explore-topics.png)
+![example of category from Medium.com](../../images/programming-topic.png)
