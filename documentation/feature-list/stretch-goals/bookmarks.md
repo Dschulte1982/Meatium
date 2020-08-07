@@ -33,6 +33,6 @@ This feature will allow a user to bookmark an article, which will be able to be 
 
 
 ## Templates
-
+  * bookmarks-list.pug
 
 ## Wireframes/Sketches
