@@ -33,6 +33,7 @@ The likes feature will allow a user to click the like icon on a story, and have 
 
 
 ## Templates
-
+  * reactions-new.pug
+  * reactions-edit.pug
 
 ## Wireframes/Sketches

@@ -40,6 +40,8 @@
 
 
 ## Templates
-
+  * comments-new.pug
+  * comments-list.pug
+  * comments-edit.pug
 
 ## Wireframes/Sketches

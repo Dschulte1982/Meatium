@@ -35,6 +35,8 @@ This feature allows one user to follow another, increasing the prominence of sto
 
 
 ## Templates
-
+  * interests-list.pug
+  * interests-new.pug
+  * interests-edit.pug
 
 ## Wireframes/Sketches
