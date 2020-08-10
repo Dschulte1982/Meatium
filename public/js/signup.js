@@ -1,4 +1,4 @@
-const form = document.querySelector('#login-form');
+const form = document.querySelector('#signup-form');
 
 
 form.addEventListener('submit', async (e) => {
@@ -6,11 +6,13 @@ form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const formData = new FormData(form);
   const username = formData.get('username')
+  const email = formData.get('email')
   const password = formData.get('password')
+  const passwordConfirm = formData.get('passwordConfirm')
 
-  const body = { username, password };
+  const body = { email, username, password, passwordConfirm };
 
-  const res = await fetch('/api/users/token', {
+  const res = await fetch('/api/users', {
     method: 'POST',
     body: JSON.stringify(body),
     headers: {
@@ -20,9 +22,13 @@ form.addEventListener('submit', async (e) => {
 
   const data = await res.json();
   if (!res.ok) {
-    const { message } = data;
+    const { message, errors } = data;
     const errorsContainer = document.querySelector('#errors-container');
-    errorsContainer.innerHTML = message;
+    for (let error of errors) {
+      const errorLi = document.createElement('li');
+      errorLi.innerHTML = error;
+      errorsContainer.appendChild(errorLi);
+    }
     return;
   }
 

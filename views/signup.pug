@@ -1,14 +1,22 @@
 extends layout.pug
 
+include include/auth-input.pug
+
+append head
+  script(src="/public/js/signup.js" type="module" defer)
+  link(rel="stylesheet" href="/public/css/auth.css")
+
 block content
-  h1 This is the sign up form
-  form#login-form
-    label(for='username') Username
-    input(type='text', name='username' required)
-    label(for='email') Email
-    input(type='text', name='email' required)
-    label(for='password') Password
-    input(type='password' name='password' required)
-    label(for='password-confirm') Password
-    input(type='password' name='password-confirm' required)
+  form#signup-form
+    h1 Sign Up for Meatium!
+    h2 Create an account to receive enticing food stories in your inbox, personalize your homepage, and follow authors and food categories that you love.
+    ul#errors-container
+    +authInput("Email","email")
+      input(type='email' name='email' placeholder='email here' required)
+    +authInput("Username","username")
+      input(type="text" name="username" placeholder='username here' required)
+    +authInput("Password","password")
+      input(type='password' name='password' placeholder='password here' required)
+    +authInput("Confirm Password", "password-confirm")
+      input(type="password" name="password-confirm" placeholder="confirm your password here" required)
     button(type='submit') Sign Up

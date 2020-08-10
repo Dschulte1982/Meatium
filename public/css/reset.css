@@ -1,5 +1,10 @@
 html {
     font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 h1, h2, h3, h4, h5, h5, h6, a, ol, li, ul, div, span, body {
@@ -8,6 +13,7 @@ h1, h2, h3, h4, h5, h5, h6, a, ol, li, ul, div, span, body {
     background-color: transparent;
     margin: 0;
     padding: 0;
+    font-weight: normal;
 }
 
 a {
@@ -17,3 +23,14 @@ a {
 ul, ol {
     list-style: none;
 }
+
+body {
+    background-color:  #FFFFFF;
+ }
+
+ #login-form, #signup-form {
+    width: 360px;
+    padding: 44px 56px;
+    margin: 0 auto;
+
+ }

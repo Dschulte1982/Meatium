@@ -1,7 +1,12 @@
 const { validationResult } = require("express-validator");
 
-const asyncHandler = (handler) => (req, res, next) =>
-  handler(req, res, next).catch(next);
+const asyncHandler = (handler) => async (req, res, next) => {
+  try {
+    await handler(req, res, next);
+  } catch (err) {
+    next(err);
+  }
+};
 
 const handleValidationErrors = (req, res, next) => {
   const validationErrors = validationResult(req);

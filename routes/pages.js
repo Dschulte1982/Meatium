@@ -12,10 +12,15 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/signup', (req, res) => {
+  res.render('signup');
+});
+
+
 module.exports = router;
 
 
-//Router for stories. Should include:
+//Router for pages. Should include:
 //GET /stories - Main landing page when a user first logs in.
 //GET /stories/:id - Individual story page based upon that story's ID.
 //GET /stories/drafts - Should display all user's stories currently in draft format (awaiting publish).

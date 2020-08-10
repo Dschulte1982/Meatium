@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const csrfProtection = require('csurf')({ cookie: true });
 
-const storiesRouter = require('./routes/stories');
+const pagesRouter = require('./routes/pages');
 const apiRouter = require('./routes/api');
 
 const app = express();
@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 
 //Routers
 app.use('/public', express.static('public'));
-app.use('/', storiesRouter);
+app.use('/', pagesRouter);
 app.use('/api', apiRouter);
 
 

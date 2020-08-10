@@ -1,13 +1,18 @@
 extends layout.pug
 
+include include/auth-input.pug
+
 append head
   script(src="public/js/login.js" type="module" defer)
+  link(rel="stylesheet" href="/public/css/auth.css")
 
 block content
-  h1 This is the login form
   form#login-form
-    label(for='username') Username
-    input(type='text', name='username')
-    label(for='password') Password
-    input(type='password' name='password')
-    button(type='submit') Log In
+    h1 Welcome Back.
+    h2 Sign in to stay up-to-date about food you enjoy, follow authors and categories you love, and interact with other food enthusiasts.
+    #errors-container
+    +authInput("Email or username","username")
+      input(type='text' name='username' placeholder='email or username here' required)
+    +authInput("Password","password")
+      input(type='password' name='password' placeholder='password here' required)
+    button(type='submit') Sign In
