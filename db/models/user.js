@@ -12,6 +12,16 @@ module.exports = (sequelize, DataTypes) => {
     }
     static associate(models) {
       User.hasMany(models.Article, { foreignKey: 'authorId' });
+      User.belongsToMany(models.User, {
+        through: 'Follow',
+        as: "follows",
+        foreignKey: "authorId",
+      });
+      User.belongsToMany(models.User, {
+        through: 'Follow',
+        as: "followers",
+        foreignKey: "userId",
+      });
     }
   };
   User.init({
