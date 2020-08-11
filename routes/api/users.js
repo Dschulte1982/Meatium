@@ -17,7 +17,6 @@ const { check } = require('express-validator');
 
 
 
-
 const validateUsername = [
   check("username")
     .exists()
@@ -39,6 +38,7 @@ const validateAuthFields = [
 
 //signup route
 router.post('/', handleValidationErrors, asyncHandler(async (req, res) => {
+
   const { username, email, password } = req.body;
 
   const user = await User.create({
@@ -47,10 +47,12 @@ router.post('/', handleValidationErrors, asyncHandler(async (req, res) => {
     email
   });
 
+
   const token = await getUserToken(user);
   res.cookie('token', token, { maxAge: expiresIn * 1000 });
 
   res.json({ id: user.id, token });
+
 }));
 
 //Logging In
