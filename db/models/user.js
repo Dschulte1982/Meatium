@@ -12,6 +12,31 @@ module.exports = (sequelize, DataTypes) => {
     }
     static associate(models) {
       User.hasMany(models.Article, { foreignKey: 'authorId' });
+      User.belongsToMany(models.User, {
+        through: 'Follow',
+        as: "follows",
+        foreignKey: "authorId",
+      });
+      User.belongsToMany(models.User, {
+        through: 'Follow',
+        as: "followers",
+        foreignKey: "userId",
+      });
+      User.belongsToMany(models.Article, {
+        through: 'Like',
+        as: 'userLikes',
+        foreignKey: 'articleId'
+      });
+      User.belongsToMany(models.Article, {
+        through: 'Bookmark',
+        as: 'bookmarks',
+        foreignKey: 'articleId',
+      });
+      User.belongsToMany(models.Category, {
+        through: 'Interest',
+        as: 'interests',
+        foreignKey: 'categoryId',
+      });
     }
   };
   User.init({
