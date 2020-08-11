@@ -42,7 +42,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(100),
       validate: {
         isEmail: true,
-        msg: 'Email field must be a valid email.'
       }
     },
     hashedPassword: {
