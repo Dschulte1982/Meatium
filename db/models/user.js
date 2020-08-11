@@ -27,6 +27,16 @@ module.exports = (sequelize, DataTypes) => {
         as: 'userLikes',
         foreignKey: 'articleId'
       });
+      User.belongsToMany(models.Article, {
+        through: 'Bookmark',
+        as: 'bookmarks',
+        foreignKey: 'articleId',
+      });
+      User.belongsToMany(models.Category, {
+        through: 'Interest',
+        as: 'interests',
+        foreignKey: 'categoryId',
+      });
     }
   };
   User.init({
