@@ -17,7 +17,7 @@ const signUpValidations = [
 ]
 
 
-router.post('/', (req, res) => {
+router.post('/', asyncHandler( async (req, res) => {
   const { username, email, password } = req.body;
 
   const user = await User.create({
@@ -31,7 +31,7 @@ router.post('/', (req, res) => {
     secret,
     { expiresIn }
   );
-})
+}));
 
 router.post('/token', asyncHandler( async (req, res, next) => {
   const { username, password } = req.body;
