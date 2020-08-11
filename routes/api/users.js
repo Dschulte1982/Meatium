@@ -12,19 +12,14 @@ const { User } = db;
 const { check } = require('express-validator');
 
 
-
-
-
-
-
 const validateUsername = [
   check("username")
     .exists()
 ];
 
 const validateAuthFields = [
-  check("username", "Username field must be between 5 and 70 characters")
-    .isLength({ min: 5, max: 70 }),
+  check("username", "Username field must be between 5 and 30 characters")
+    .isLength({ min: 5, max: 30 }),
   check("email", "Email fields must be a valid email")
     .exists()
     .isEmail(),
@@ -37,7 +32,12 @@ const validateAuthFields = [
 ]
 
 //signup route
-router.post('/', handleValidationErrors, asyncHandler(async (req, res) => {
+router.post('/',
+validateUsername,
+validateAuthFields,
+handleValidationErrors,
+asyncHandler(async (req, res) => {
+  console.log('did it hit here');
 
   const { username, email, password } = req.body;
 
@@ -56,7 +56,9 @@ router.post('/', handleValidationErrors, asyncHandler(async (req, res) => {
 }));
 
 //Logging In
-router.post('/token', handleValidationErrors, asyncHandler( async (req, res, next) => {
+router.post('/token',
+validateUsername,
+handleValidationErrors, asyncHandler( async (req, res, next) => {
   const { username, password } = req.body;
 
   const user = await User.findOne({

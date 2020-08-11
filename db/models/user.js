@@ -18,21 +18,20 @@ module.exports = (sequelize, DataTypes) => {
     username: {
       allowNull: false,
       unique: true,
-      type: DataTypes.STRING(30),
+      type: DataTypes.STRING,
       validate: {
         len: {
           args: [5, 30],
           msg: 'Username must be between 5 and 30 characters long.'
-        }
-      }
+        },
+      },
     },
     email: {
       allowNull: false,
       unique: true,
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING,
       validate: {
         isEmail: true,
-        msg: 'Email field must be a valid email.'
       }
     },
     hashedPassword: {

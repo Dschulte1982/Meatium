@@ -20,6 +20,7 @@ form.addEventListener('submit', async (e) => {
       "Content-Type": "application/json"
     }
   });
+  console.log('did it hit here?')
 
   const data = await res.json();
   if (!res.ok) {
