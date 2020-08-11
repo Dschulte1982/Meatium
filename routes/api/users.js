@@ -1,39 +1,60 @@
 const express = require('express');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const { Op } = require('sequelize');
-const { check, validatePassword } = require('express-validator');
-const { getUserToken } = require('../utils/auth')
-
-const { secret, expiresIn } = require('../../config').jwtConfig;
-const db = require('../../db/models');
-const { User } = db;
-const { asyncHandler } = require('../utils');
-
 const router = express.Router();
+const { asyncHandler, handleValidationErrors } = require('../utils');
+const { getUserToken } = require('../utils/auth');
 
-const signUpValidations = [
+const bcrypt = require('bcryptjs');
+const { expiresIn } = require('../../config').jwtConfig;
+const db = require('../../db/models');
+const { Op } = require('sequelize');
+const { User } = db;
 
+const { check } = require('express-validator');
+
+
+
+
+
+
+
+
+const validateUsername = [
+  check("username")
+    .exists()
+];
+
+const validateAuthFields = [
+  check("username", "Username field must be between 5 and 70 characters")
+    .isLength({ min: 5, max: 70 }),
+  check("email", "Email fields must be a valid email")
+    .exists()
+    .isEmail(),
+  check("password", "Password field must be 6 or more characters")
+    .exists()
+    .isLength({ min: 6, max: 70 }),
+  check('password-confirm', 'Confirm password field must have the same value as the password field')
+    .exists()
+    .custom((value, { req }) => value === req.body.password)
 ]
 
-
-router.post('/', (req, res) => {
+//signup route
+router.post('/', handleValidationErrors, asyncHandler(async (req, res) => {
   const { username, email, password } = req.body;
 
   const user = await User.create({
     username,
-    password,
+    hashedPassword: bcrypt.hashSync(password, 10),
     email
-  })
+  });
 
-  const token = await jwt.sign(
-    { id: user.id, username: user.username },
-    secret,
-    { expiresIn }
-  );
-})
+  const token = await getUserToken(user);
+  res.cookie('token', token, { maxAge: expiresIn * 1000 });
 
-router.post('/token', asyncHandler( async (req, res, next) => {
+  res.json({ id: user.id, token });
+}));
+
+//Logging In
+router.post('/token', handleValidationErrors, asyncHandler( async (req, res, next) => {
   const { username, password } = req.body;
 
   const user = await User.findOne({
@@ -53,11 +74,7 @@ router.post('/token', asyncHandler( async (req, res, next) => {
     err.title = "Unauthorized";
     throw err;
   }
-  const token = await jwt.sign(
-    { id: user.id, username: user.username },
-    secret,
-    { expiresIn }
-  );
+  const token = await getUserToken(user);
 
   res.cookie('token', token, { maxAge: expiresIn * 1000 });
 
