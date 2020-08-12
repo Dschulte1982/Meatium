@@ -4,7 +4,7 @@ const { getUserToken } = require('../utils/auth');
 const csrfProtection = require('csurf')({ cookie: true });
 
 const db = require('../../db/models');
-const { Article, User } = db;
+const { Article, User, Category } = db;
 
 const { check } = require('express-validator');
 
@@ -31,6 +31,10 @@ router.get('/', asyncHandler(async (req, res) => {
     include: [{
       model: User,
       attributes: ['username'],
+    },
+    {
+      model: Category,
+      attributes: ['name'],
     }],
     order: [['createdAt', 'DESC']],
   });

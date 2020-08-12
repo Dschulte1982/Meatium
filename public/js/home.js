@@ -8,10 +8,6 @@ const getStories = async () => {
 
 const createStoryLi = (story) => {
   const createdAt = new Date(story.createdAt);
-  const timeOptions = {
-    minute: "numeric",
-    hour: "numeric",
-  };
 
   const dateOptions = {
     year: 'numeric',
@@ -19,34 +15,40 @@ const createStoryLi = (story) => {
     day: 'numeric',
   };
 
-  const timestamp =
-    createdAt.toLocaleString('en-US', timeOptions) +
-    " . " +
-    createdAt.toLocaleString('en-US', dateOptions);
+  const timestamp = createdAt.toLocaleString('en-US', dateOptions);
 
   return `
-    <a href="/tweets/${story.id}">
-      <li>
-        <div class="user-icon">
-          <i class="fas fa-user"></i>
-        </div>
-        <div class="tweet">
-          <div class="tweet-header">
-            @${story.User.username} · ${timestamp}
-            <div class="dropdown-arrow">
-              <i class="fas fa-chevron-circle-down"></i>
+    <li>
+      <div class="story">
+        <a href="/stories/${story.id}">
+          <div class="story-headers">
+            <h3 class ="story-title">${story.title}</h3>
+            <div class="story-byline">
+              <p>An interesting byline goes here</p>
             </div>
-            <div class="modal-background" style="display: none"></div>
-            <ul class="dropdown-menu" style="display: none">
-              <li><button class="delete" data-id=${story.id}>Delete</button></li>
-            </ul>
           </div>
-          <div class="tweet-contents">
-            ${story.message}
-          </div>
+        </a>
+        <div class="author-category">
+          <p>
+            <a href="/users/${story.authorId}">${story.User.username}</a>
+            in
+            <a href="/categories/${story.categoryId}">${story.Category.name}</a>
+          </p>
         </div>
-      </li>
-    </a>
+        <div class="story-info">
+          <p>${timestamp} * 5 min read</p>
+        </div>
+        <div class="dropdown-button">
+          <i class="fas fa-chevron-circle-down"></i>
+        </div>
+        <ul class="dropdown-menu" style="display: none">
+          <li><button class="delete" data-id=${story.id}>Delete</button></li>
+        </ul>
+        <div class="story-image">
+          <img src="${story.imagePath}>
+        </div>
+      </div>
+    </li>
   `;
 }
 
@@ -54,9 +56,30 @@ const populateStoryList = async () => {
   const storiesList = document.querySelector('.stories-list');
 
   const { stories } = await getStories();
+
   for (let story of stories) {
     const storyLi = createStoryLi(story);
     storiesList.innerHTML += storyLi;
   }
 
-}
+  const storyLis = document.querySelectorAll(".stories-list > a");
+  const storyDropdownButtons = document.querySelectorAll(".stories-list .dropdown-button");
+  // const storyModals = document.querySelectorAll(".stories-list .modal-background");
+  const deleteButtons = document.querySelectorAll(".stories-list .delete");
+  const storyDropdowns = document.querySelectorAll(".stories-list .dropdown-menu");
+
+  //here is where we will add event listeners on the dropdown menu button and delete button therein.
+  // for (let i = 0; i < storyLis.length; i++) {
+  //   const storyLi = storyLis[i];
+  //   const storyDropdownButton = storyDropdownButtons[i];
+  //   // const storyModal = storyModals[i];
+  //   const deleteButton = deleteButtons[i];
+  //   const storyDropdown = storyDropdowns[i];
+
+
+  // };
+
+};
+
+
+populateStoryList();
