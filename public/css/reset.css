@@ -1,15 +1,16 @@
 html {
     font-size: 15px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "Times New Roman", Times, serif;
+    color: black;
 }
 
 * {
     box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h5, h6, a, ol, li, ul, div, span, body {
+h1, h2, h3, h4, h5, h5, h6, a, ol, li, ul, div, p, span, body {
     font-size: 1rem;
-    color: black;
+    color: inherit;
     background-color: transparent;
     margin: 0;
     padding: 0;

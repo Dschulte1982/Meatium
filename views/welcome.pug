@@ -1,0 +1,23 @@
+extends layout.pug
+
+include include/auth-input.pug
+
+append head
+  script(src="/public/js/welcome.js" type="module" defer)
+  link(rel="stylesheet" href="/public/css/home.css")
+
+block content
+    div#
+        form#login-form
+            h1 Welcome Back.
+            h2 Sign in to stay up-to-date about food you enjoy, follow authors and categories you love, and interact with other food enthusiasts.
+            #errors-container
+            +authInput("Sign in with email or username","username")
+            input(type='text' name='username' placeholder='email or username here' required)
+            +authInput("Password","password")
+            input(type='password' name='password' placeholder='password here' required)
+            button(type='submit') Sign In
+            button(type='demo') Demo User
+            div.create-account No account?
+            a.link-to-other-form(href="/signup") Create one
+            h4 Click "Demo User" to jump right into Meatium with a demo user and give Meatium a look around.
