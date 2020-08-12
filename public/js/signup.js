@@ -10,8 +10,9 @@ form.addEventListener('submit', async (e) => {
   const username = formData.get('username')
   const password = formData.get('password')
   const password2 = formData.get('password2')
+  const _csrf = formData.get('_csrf');
 
-  const body = { email, username, password, password2 };
+  const body = { email, username, password, password2, _csrf };
   errorsContainer.innerHTML = '';
   const res = await fetch('/api/users', {
     method: 'POST',
@@ -20,7 +21,6 @@ form.addEventListener('submit', async (e) => {
       "Content-Type": "application/json"
     }
   });
-
 
   const data = await res.json();
   if (!res.ok) {
@@ -32,6 +32,5 @@ form.addEventListener('submit', async (e) => {
     }
     return;
   }
-
   window.location.href = '/';
 });

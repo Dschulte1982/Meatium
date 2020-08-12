@@ -3,6 +3,8 @@ const router = express.Router();
 const { asyncHandler, handleValidationErrors } = require('../utils');
 const { getUserToken } = require('../utils/auth');
 
+const csrfProtection = require("csurf")({ cookie: true });
+
 const bcrypt = require('bcryptjs');
 const { expiresIn } = require('../../config').jwtConfig;
 const db = require('../../db/models');
@@ -33,6 +35,7 @@ const validateAuthFields = [
 
 //signup route
 router.post('/',
+csrfProtection,
 validateUsername,
 validateAuthFields,
 handleValidationErrors,
@@ -56,20 +59,16 @@ asyncHandler(async (req, res) => {
 
 //Logging In
 router.post('/token',
+csrfProtection,
 validateUsername,
 handleValidationErrors, asyncHandler( async (req, res, next) => {
   const { username, password } = req.body;
 
   const user = await User.findOne({
     where: {
-      [Op.or]: [
-        { username },
-        { email: username },
-      ]
-    }
+      [Op.or]: [{ username }, { email: username }],
+    },
   });
-
-
 
   if (!user || !user.validatePassword(password)) {
     const err = new Error('Invalid username/password');

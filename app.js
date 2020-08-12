@@ -1,18 +1,17 @@
 const express = require('express');
-const morgan = require('morgan');
-const csrfProtection = require('csurf')({ cookie: true });
+const app = express();
 
 const pagesRouter = require('./routes/pages');
 const apiRouter = require('./routes/api');
 
-const app = express();
+app.set('view engine', 'pug');
+
+const morgan = require('morgan');
+
 app.use(morgan('dev'));
 app.use(require('cookie-parser')());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-
-app.set('view engine', 'pug');
 
 //Sets the timeout so that the app does not infinitely attempt to load assets.
 app.use((req, res, next) => {
