@@ -26,9 +26,9 @@ const validateAuthFields = [
   check("password", "Password field must be 6 or more characters")
     .exists()
     .isLength({ min: 6, max: 70 }),
-  check('password-confirm', 'Confirm password field must have the same value as the password field')
-    .exists()
-    .custom((value, { req }) => value === req.body.password)
+  check('password2', 'Confirm password field must have the same value as the password field')
+     .exists()
+     .custom((value, { req }) => value === req.body.password)
 ]
 
 //signup route
@@ -37,7 +37,6 @@ validateUsername,
 validateAuthFields,
 handleValidationErrors,
 asyncHandler(async (req, res) => {
-  console.log('did it hit here');
 
   const { username, email, password } = req.body;
 

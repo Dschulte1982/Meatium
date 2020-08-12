@@ -9,9 +9,9 @@ form.addEventListener('submit', async (e) => {
   const email = formData.get('email')
   const username = formData.get('username')
   const password = formData.get('password')
-  const passwordConfirm = formData.get('password-confirm')
+  const password2 = formData.get('password2')
 
-  const body = { email, username, password, passwordConfirm };
+  const body = { email, username, password, password2 };
   errorsContainer.innerHTML = '';
   const res = await fetch('/api/users', {
     method: 'POST',
@@ -20,7 +20,7 @@ form.addEventListener('submit', async (e) => {
       "Content-Type": "application/json"
     }
   });
-  console.log('did it hit here?')
+
 
   const data = await res.json();
   if (!res.ok) {
