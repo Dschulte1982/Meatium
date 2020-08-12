@@ -11,6 +11,7 @@ block content
     h1 Welcome Back.
     h2 Sign in to stay up-to-date about food you enjoy, follow authors and categories you love, and interact with other food enthusiasts.
     #errors-container
+    input(type="hidden" name="_csrf" value=csrf)
     +authInput("Sign in with email or username","username")
       input(type='text' name='username' placeholder='email or username here' required)
     +authInput("Password","password")
