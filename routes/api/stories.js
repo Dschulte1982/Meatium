@@ -42,7 +42,30 @@ router.get('/', asyncHandler(async (req, res) => {
   res.json({ stories });
 }));
 
-router.post('/', validateStory, asyncHandler(async (req, res) => {
+router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
+  const story = await Article.findByPk(req.params.id, {
+    include: [
+      {
+        model: User,
+        attributes: ['username'],
+      },
+      {
+        model: Category,
+        attributes: ['name'],
+      },
+    ],
+  });
+
+  if (!story) {
+    const err = new Error('Story not found');
+    err.status = 404;
+    next(err);
+    return;
+  }
+  res.json({ story });
+}))
+
+router.post('/', csrfProtection, validateStory, asyncHandler(async (req, res) => {
   const { title, text, category } = req.body;
   const authorId = req.user.id;
 
@@ -57,6 +80,20 @@ router.post('/', validateStory, asyncHandler(async (req, res) => {
   });
 
   res.json({ story });
+}));
+
+router.delete('/:id(\\d+)', asyncHandler( async (req, res) => {
+  const story = await Article.findByPk(req.params.id);
+
+  if (!story) {
+    const err = new Error('Story not found');
+    err.status = 404;
+    next(err);
+    return;
+  }
+
+  await story.destroy();
+  res.json({ message: 'successfully deleted' });
 }));
 
 
