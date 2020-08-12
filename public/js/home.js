@@ -6,6 +6,8 @@ const getStories = async () => {
   return data;
 }
 
+
+//Will eventually need to interpolate a byline and readTime from the Article model
 const createStoryLi = (story) => {
   const createdAt = new Date(story.createdAt);
 
@@ -45,7 +47,7 @@ const createStoryLi = (story) => {
           <li><button class="delete" data-id=${story.id}>Delete</button></li>
         </ul>
         <div class="story-image">
-          <img src="${story.imagePath}>
+          <img src="${story.imagePath}">
         </div>
       </div>
     </li>
