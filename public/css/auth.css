@@ -13,6 +13,9 @@ h2 {
     margin-bottom: 45px;
     padding-left: 60px;
     padding-right: 60px;
+    color: rgb(41,41,41);
+    font-weight: 300;
+    line-height: 24px;
 }
 
 #login-form, #signup-form {
@@ -31,22 +34,29 @@ h2 {
     flex-direction: column;
     padding-left: 60px;
     padding-right: 60px;
+
 }
 
 .auth-input label {
     padding: 5px 10px 0 0;
+    color: rgb(41,41,41);
+    font-weight: 300;
+
 }
 
 .auth-input input {
     padding: 0px;
     margin: 10px 60px;
     background-color: transparent;
-    font-size: 18px;
-    border-bottom: 1px solid;
+    font-size: 17px;
+    border: 0;
+    border-bottom: 1px solid #757575;;
+    text-align: center;
 }
 
 .auth-input input:focus {
     outline: 0;
+    border-bottom: 1px solid black;
 }
 
 button[type="submit"] {
@@ -55,8 +65,54 @@ button[type="submit"] {
     padding: 0;
     outline: 0;
     border: 0;
-    margin: 10px 190px;
+    margin: 20px 190px;
     color: #FFFFFF;
     background-color: #191919;
     font-size: 16px;
+}
+
+button[type="demo"] {
+    height: 38px;
+    border-radius: 4px;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    margin: 0px 190px;
+    color: #FFFFFF;
+    background-color: #191919;
+    font-size: 16px;
+}
+
+div.create-account  {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+a.link-to-other-form{
+    color: #029E74;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+div.existing-account  {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+a.link-to-other-form{
+    color: #029E74;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+h4 {
+    font-size: 15px;
+    color: #757575;
+    text-align: center;
+    margin-top:25px;
+    margin-bottom: 45px;
+    padding-left: 79px;
+    padding-right: 79px;
 }

@@ -3,15 +3,33 @@ extends layout.pug
 include include/auth-input.pug
 
 append head
-  script(src="/public/js/login.js" type="module" defer)
-  link(rel="stylesheet" href="/public/css/auth.css")
+  script(src="/public/js/welcome.js" type="module" defer)
+  link(rel="stylesheet" href="/public/css/home.css")
 
 block content
+  div#header
+    text Medium
+    a(id='Subscribe') Subscribe
+    a(id='Write') Write
+    button(id='show') Sign Up
+    button(id='Get started') Get started
+  div#headline
+    text Get smarter about what matters to you.
+  div#subheading
+    text Select what you're into. We'll help you find great things to read.
+  div#categories
+    button Future
+    button Science
+    button Programming
+    button Technology
+    button Health
+    button Business
+    button Food
   form#login-form
+    button(id='close-window' type='close' class='close') X
     h1 Welcome Back.
     h2 Sign in to stay up-to-date about food you enjoy, follow authors and categories you love, and interact with other food enthusiasts.
     #errors-container
-    input(type="hidden" name="_csrf" value=csrf)
     +authInput("Sign in with email or username","username")
       input(type='text' name='username' placeholder='email or username here' required)
     +authInput("Password","password")
