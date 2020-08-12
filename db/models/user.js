@@ -12,27 +12,51 @@ module.exports = (sequelize, DataTypes) => {
     }
     static associate(models) {
       User.hasMany(models.Article, { foreignKey: 'authorId' });
+      User.belongsToMany(models.User, {
+        through: 'Follow',
+        as: "follows",
+        foreignKey: "authorId",
+      });
+      User.belongsToMany(models.User, {
+        through: 'Follow',
+        as: "followers",
+        foreignKey: "userId",
+      });
+      User.belongsToMany(models.Article, {
+        through: 'Like',
+        as: 'userLikes',
+        foreignKey: 'articleId'
+      });
+      User.belongsToMany(models.Article, {
+        through: 'Bookmark',
+        as: 'bookmarks',
+        foreignKey: 'articleId',
+      });
+      User.belongsToMany(models.Category, {
+        through: 'Interest',
+        as: 'interests',
+        foreignKey: 'categoryId',
+      });
     }
   };
   User.init({
     username: {
       allowNull: false,
       unique: true,
-      type: DataTypes.STRING(30),
+      type: DataTypes.STRING,
       validate: {
         len: {
           args: [5, 30],
           msg: 'Username must be between 5 and 30 characters long.'
-        }
-      }
+        },
+      },
     },
     email: {
       allowNull: false,
       unique: true,
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING,
       validate: {
         isEmail: true,
-        msg: 'Email field must be a valid email.'
       }
     },
     hashedPassword: {

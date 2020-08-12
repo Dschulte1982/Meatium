@@ -1,17 +1,19 @@
 const form = document.querySelector('#signup-form');
+const errorsContainer = document.querySelector("#errors-container");
 
 
 form.addEventListener('submit', async (e) => {
   console.log('submitting');
   e.preventDefault();
   const formData = new FormData(form);
-  const username = formData.get('username')
   const email = formData.get('email')
+  const username = formData.get('username')
   const password = formData.get('password')
-  const passwordConfirm = formData.get('passwordConfirm')
+  const password2 = formData.get('password2')
+  const _csrf = formData.get('_csrf');
 
-  const body = { email, username, password, passwordConfirm };
-
+  const body = { email, username, password, password2, _csrf };
+  errorsContainer.innerHTML = '';
   const res = await fetch('/api/users', {
     method: 'POST',
     body: JSON.stringify(body),
@@ -23,7 +25,6 @@ form.addEventListener('submit', async (e) => {
   const data = await res.json();
   if (!res.ok) {
     const { message, errors } = data;
-    const errorsContainer = document.querySelector('#errors-container');
     for (let error of errors) {
       const errorLi = document.createElement('li');
       errorLi.innerHTML = error;
@@ -31,6 +32,5 @@ form.addEventListener('submit', async (e) => {
     }
     return;
   }
-
   window.location.href = '/';
 });

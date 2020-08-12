@@ -1,24 +1,36 @@
 const express = require('express');
-
 const router = express.Router();
 
+const csrfProtection = require("csurf")({ cookie: true });
 
 
-router.get('/', (req, res) => {
-  // res.json( { msg: 'hello world'});
-  // res.render('login');
-  res.render('welcome');
-
+router.get('/login', csrfProtection, (req, res) => {
+  if (req.user) {
+    res.redirect('/');
+    return;
+  }
+  res.render('login', { csrf: req.csrfToken() });
 });
 
-router.get('/login', (req, res) => {
-  res.render('login');
+router.get('/signup', csrfProtection, (req, res) => {
+  if (req.user) {
+    res.redirect("/");
+    return;
+  }
+  res.render("signup", { csrf: req.csrfToken() });
 });
 
-router.get('/signup', (req, res) => {
-  res.render('signup');
+router.get('/', csrfProtection, (req, res) => {
+  if (!req.user) {
+    res.redirect("/login");
+    return;
+  }
+  res.render("/", { username: req.user.username, csrf: req.csrfToken() });
 });
 
+router.get('*', (req,res) => {
+  res.render('error-page');
+});
 
 module.exports = router;
 
