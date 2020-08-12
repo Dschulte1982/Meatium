@@ -8,8 +8,8 @@ append head
 
 block content
   form#signup-form
-    h1 Sign Up for Meatium!
-    h2 Create an account to receive enticing food stories in your inbox, personalize your homepage, and follow authors and food categories that you love.
+    h1 Join Meatium.
+    h2 Create an account to receive enticing food stories in your inbox, personalize your homepage, and follow authors and food topics that you love.
     ul#errors-container
     +authInput("Email","email")
       input(type='email' name='email' placeholder='email here' required)
@@ -20,3 +20,6 @@ block content
     +authInput("Confirm Password", "password-confirm")
       input(type="password" name="password-confirm" placeholder="confirm your password here" required)
     button(type='submit') Sign Up
+    div.existing-account Already have an account?
+      a.link-to-other-form(href="/login") Sign in
+    h4 Fill out the above to create an account to browse Meatium or click "Sign in" to jump right into Meatium with a demo user.
