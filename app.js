@@ -24,8 +24,9 @@ app.use((req, res, next) => {
 
 //Routers
 app.use('/public', express.static('public'));
-app.use('/', pagesRouter);
 app.use('/api', apiRouter);
+app.use('/', pagesRouter);
+
 
 
 

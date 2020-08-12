@@ -38,7 +38,7 @@ router.get('/', asyncHandler(async (req, res) => {
   res.json({ stories });
 }));
 
-router.post('/', csrfProtection, validateStory, asyncHandler(async (req, res) => {
+router.post('/', validateStory, asyncHandler(async (req, res) => {
   const { title, text, category } = req.body;
   const authorId = req.user.id;
 
