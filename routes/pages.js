@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+<<<<<<< HEAD
 
 
 router.get('/', (req, res) => {
@@ -8,20 +9,37 @@ router.get('/', (req, res) => {
   // res.render('login');
   res.render('welcome');
 
+=======
+const csrfProtection = require("csurf")({ cookie: true });
+
+router.get('/login', csrfProtection, (req, res) => {
+  if (req.user) {
+    res.redirect('/');
+    return;
+  }
+  res.render('login', { csrf: req.csrfToken() });
+>>>>>>> c66914c2aa3c6478aaee1fbe8a40bc752cb74817
 });
 
-router.get('/login', (req, res) => {
-  res.render('login');
+router.get('/signup', csrfProtection, (req, res) => {
+  if (req.user) {
+    res.redirect("/");
+    return;
+  }
+  res.render("signup", { csrf: req.csrfToken() });
 });
 
-router.get('/signup', (req, res) => {
-  res.render('signup');
+router.get('/', csrfProtection, (req, res) => {
+  if (!req.user) {
+    res.redirect("/login");
+    return;
+  }
+  res.render("/", { username: req.user.username, csrf: req.csrfToken() });
 });
 
 router.get('*', (req,res) => {
   res.render('error-page');
 });
-
 
 module.exports = router;
 

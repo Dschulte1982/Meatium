@@ -11,6 +11,7 @@ block content
     h1 Join Meatium.
     h2 Create an account to receive enticing food stories in your inbox, personalize your homepage, and follow authors and food topics that you love.
     ul#errors-container
+    input(type="hidden" name="_csrf" value=csrf)
     +authInput("Email", "email")
       input(type='email' name='email' placeholder='email here' required)
     +authInput("Username", "username")
