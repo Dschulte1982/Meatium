@@ -23,4 +23,8 @@ exports.getUserFromToken = async (token) => {
     } catch(err) {
       return null;
     }
+<<<<<<< HEAD
   };
+=======
+  }
+>>>>>>> 8774b896f6ebd5715fdad9e1763f95c2677b66c0
