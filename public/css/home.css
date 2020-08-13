@@ -36,9 +36,6 @@ header {
 
 nav {
     float: right;
-    /* display: inline-block; */
-    /* margin-top: 10px; */
-    /* padding-top: 10px; */
     justify-content: right;
     color: rgb(41,41,41);
 }
@@ -61,6 +58,8 @@ nav {
     color: rgba(41, 41, 41, 1);
 }
 
+
+
 #categories {
     margin-top: 45px;
     text-align: center;
@@ -75,6 +74,113 @@ nav {
     height: 30;
     padding: 6px 12px 6px 36px;
     margin: 5px;
+}
+
+div#qualities {
+    text-align: center;
+}
+
+div#qualities > text {
+    padding: 25px;
+    color: rgba(41, 41, 41, 1);
+    font-size: 24px
+}
+
+#all-on-meatium {
+    font-weight: bold;
+}
+
+div#no-ads-no-problem {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+div#bottom-border {
+    border-top: 1px solid #757575;
+    margin-left: 500px;
+    margin-right: 500px;
+
+}
+
+#no-ads {
+    font-size: 70px;
+    font-weight: bold;
+}
+
+#no-ads-sub {
+    font-size: 24px;
+    color:rgba(117, 117, 117, 1);
+}
+
+#do-things-differently {
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+#do-things-text {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    padding-left: 300px;
+    padding-right: 90px;
+    line-height: 32px;
+}
+
+#different {
+    font-size: 22px;
+    padding-bottom: 40px;
+    color: black;
+    font-weight: bold;
+}
+
+#different-sub {
+    font-size: 24px;
+    color:rgba(117, 117, 117, 1);
+}
+
+#get-started-ad {
+    float: left;
+    box-sizing: border-box;
+    background-color:  rgba(3, 168, 124, 1);
+    border-width: 1px;
+    border-style: solid;
+    border: 0 none;
+    outline: 0;
+    border-radius: 3px;
+    width: 340px;
+    height: 62px;
+    font-size: 24px;
+    color: white;
+}
+
+
+#ending-slogan {
+    text-align: center;
+}
+
+#satisfy {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 70px;
+    padding: 50px;
+    font-weight: bold;
+}
+
+#get-started-slogan {
+    box-sizing: border-box;
+    background-color:  rgba(3, 168, 124, 1);
+    border-width: 1px;
+    border-style: solid;
+    border: 0 none;
+    outline: 0;
+    border-radius: 3px;
+    width: 340px;
+    height: 62px;
+    font-size: 24px;
+    color: white;
+    margin-bottom: 50px;
 }
 
 #get-started {
@@ -121,11 +227,12 @@ div.existing-account {
 }
 
 
-
 div#header text {
     text-align: center;
     float: center;
 }
+
+
 
 #login-form, #signup-form {
     text-align: center;
@@ -168,7 +275,7 @@ div#header text {
     background-color: transparent;
     font-size: 17px;
     border: 0;
-    border-bottom: 1px solid #757575;;
+    border-bottom: 1px solid #757575;
     text-align: center;
 }
 
