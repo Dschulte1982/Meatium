@@ -21,6 +21,19 @@ app.use((req, res, next) => {
     next();
 });
 
+
+const { getUserFromToken } = require("./routes/utils/auth");
+
+app.use(async (req, res, next) => {
+  const token = req.cookies.token;
+  if (!token) return next();
+
+  const user = await getUserFromToken(token, res);
+  if (user) req.user = user;
+  else res.clearCookie('token');
+  next();
+});
+
 //Routers
 app.use('/public', express.static('public'));
 app.use('/api', apiRouter);

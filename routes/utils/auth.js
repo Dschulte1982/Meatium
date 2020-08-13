@@ -12,3 +12,15 @@ exports.getUserToken = async (user) => {
         { expiresIn }
     );
 };
+
+exports.getUserFromToken = async (token) => {
+    try {
+      const payload = jwt.verify(
+        token,
+        secret
+      );
+      return await User.findByPk(payload.id);
+    } catch(err) {
+      return null;
+    }
+  }
