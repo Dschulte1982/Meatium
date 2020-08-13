@@ -7,8 +7,9 @@ form.addEventListener('submit', async (e) => {
 
   const title = formData.get('title');
   const text = formData.get('text');
-  const categoryId = formData.get('categoryId');
-  const _csrf = formData.get('csrf');
+  const categoryIdString = formData.get('categoryId');
+  const categoryId = parseInt(categoryIdString, 10);
+  const _csrf = formData.get('_csrf');
 
   const body = { title, text, categoryId, _csrf };
 
