@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "per-env node",
     "start:development": "nodemon -r dotenv/config ./bin/www",
-    "start:production": "dotenv/config ./bin/www"
+    "start:production": "node ./bin/www"
   },
   "repository": {
     "type": "git",
