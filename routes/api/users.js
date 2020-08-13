@@ -9,7 +9,7 @@ const bcrypt = require('bcryptjs');
 const { expiresIn } = require('../../config').jwtConfig;
 const db = require('../../db/models');
 const { Op } = require('sequelize');
-const { User } = db;
+const { User, Like, Article } = db;
 
 const { check } = require('express-validator');
 
@@ -84,5 +84,16 @@ handleValidationErrors, asyncHandler( async (req, res, next) => {
 
 }));
 
+//Profile Page - Functionality not currently supported by model associations.
+router.get('/', asyncHandler(async (req, res) => {
+  const claps = await Article.findAll({
+    include: [
+      {
+        model: User,
+        attributes: ['id'],
+      }],
+  });
+res.json({ claps });
+}));
 
 module.exports = router;

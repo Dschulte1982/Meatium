@@ -1,0 +1,40 @@
+.profile-name {
+    font-size: 2.5em;
+}
+
+#profile {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 728px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 24px;
+    padding-left: 24px;
+}
+
+#profile-details {
+    display: grid;
+    grid-template-columns: 1.5fr .5fr 2fr;
+}
+
+#profile-name {
+    font-size: 2.5em;
+    justify-self: left;
+}
+
+#edit-profile {
+    max-width: 90px;
+    max-height: 30px;
+    justify-self: left;
+    align-self: center;
+
+}
+
+#profile-pick {
+justify-items: right;
+}
+
+#profile-claps {
+
+}
