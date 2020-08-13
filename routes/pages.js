@@ -27,6 +27,15 @@ router.get('/signup', csrfProtection, (req, res) => {
   res.render("signup", { csrf: req.csrfToken() });
 });
 
+
+router.get('/home', csrfProtection, (req, res) => {
+  if (!req.user) {
+    res.redirect("/login");
+    return;
+  }
+  res.render("home", { username: req.user.username, csrf: req.csrfToken() });
+})
+
 router.get('/', csrfProtection, (req, res) => {
   if (!req.user) {
     res.redirect("/login");

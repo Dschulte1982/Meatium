@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "per-env",
+    "start": "per-env node ./app.js",
     "start:development": "nodemon -r dotenv/config ./bin/www",
     "start:production": "node ./bin/www"
   },
@@ -39,5 +39,8 @@
     "dotenv-cli": "^3.2.0",
     "nodemon": "^2.0.4",
     "sequelize-cli": "^6.2.0"
+  },
+  "engines": {
+    "node": "12.x"
   }
 }
