@@ -23,10 +23,10 @@ const createStory = (story) => {
             <h1 class="story-title">${story.title}</h1>
             <div>
               <div class="story-meta-info">
-                <div><img src="../assets/profile-pics/anonymous-profile-pic.jpg"</div>
+                <div><img src="/assets/profile-pics/anonymous-profile-pic.jpg"</div>
                 <div>
                   <span>
-                    <a href="users/${story.User.id}">${story.User.usernam}</a>
+                    <a href="users/${story.User.id}">${story.User.username}</a>
                     <button type="button" class="author-follow-button">Follow</button>
                   </span>
                   <span class="story-date-length">${timestamp} * 5 min<span>
@@ -38,7 +38,10 @@ const createStory = (story) => {
               <div class="story-header-buttons"></div>
             </div>
           </div>
-          <p class="story-text">${story.text}</p>
+          <div class="story-body">
+            <img src=${story.imagePath}>
+            <p class="story-text">${story.text}</p>
+          </div>
         </section>
       </div>
     </article>

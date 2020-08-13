@@ -36,6 +36,7 @@ app.use(async (req, res, next) => {
 
 //Routers
 app.use('/public', express.static('public'));
+app.use('/assets', express.static('assets'));
 app.use('/api', apiRouter);
 app.use('/', pagesRouter);
 

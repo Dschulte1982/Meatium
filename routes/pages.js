@@ -57,6 +57,14 @@ router.get('/stories/:id(\\d+)', csrfProtection, (req, res) => {
   });
 });
 
+router.get('/new-story', csrfProtection, (req, res) => {
+  if (!req.user) {
+    res.redirect("/welcome");
+    return;
+  }
+  res.render("new-story", { csrf: req.csrfToken() });
+});
+
 router.get('/users/:id(\\d+)', csrfProtection, (req, res) => {
   if (!req.user) {
     res.redirect("/welcome");
