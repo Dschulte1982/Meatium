@@ -1,15 +1,26 @@
 //reference login.js or signup.js if needed
 
 const form = document.querySelector('#login-form');
-const button = document.getElementById('show')
-const closeButton = document.getElementById('close-window');
+const signInButton = document.getElementById('show')
+const getStartedButton = document.getElementById('get-started');
+const closeSignInButton = document.getElementById('close-sign-in');
+const closeSignUpButton = document.getElementById('close-sign-up');
 
-button.addEventListener('click', e => {
+
+signInButton.addEventListener('click', e => {
     document.getElementById('login-form').style.display = "flex";
 })
 
-closeButton.addEventListener('click', e => {
+getStartedButton.addEventListener('click', e => {
+    document.getElementById('signup-form').style.display = "flex";
+})
+
+closeSignInButton.addEventListener('click', e => {
     document.getElementById('login-form').style.display = "none";
+})
+
+closeSignUpButton.addEventListener('click', e => {
+    document.getElementById('signup-form').style.display = "none";
 })
 
 form.addEventListener('submit', async (e) => {
