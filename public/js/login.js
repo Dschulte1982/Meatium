@@ -27,9 +27,5 @@ form.addEventListener('submit', async (e) => {
     return;
   }
 
-<<<<<<< HEAD
-  window.location.href = '/test';
-=======
   window.location.href = '/home';
->>>>>>> 8774b896f6ebd5715fdad9e1763f95c2677b66c0
 });

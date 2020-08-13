@@ -1,3 +1,14 @@
 extends layout.pug
 
-include include/auth-input.pug
+append head
+  script(src="/public/js/profile.js" type="module" defer)
+  link(rel="stylesheet" href="/public/css/profile.css")
+
+block content
+  div#profile
+    div#profile-details
+        div#profile-name Test Text
+        button#edit-profile Edit Profile
+        img(id="profile-pic" src="../assets/bltsandwich.jpg")
+    div#profile-claps Other test text
+        ul.my-claps

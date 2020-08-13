@@ -35,7 +35,15 @@ router.get('/home', csrfProtection, (req, res) => {
     return;
   }
   res.render("home", { username: req.user.username, csrf: req.csrfToken() });
-})
+});
+
+router.get('/profile', csrfProtection, (req, res) => {
+  if (req.user) {
+    res.render('profile', { username: req.user.username, csrf: req.csrfToken() });
+    return;
+  }
+  res.render('login', { csrf: req.csrfToken() });
+});
 
 router.get('/', csrfProtection, (req, res) => {
   if (!req.user) {
