@@ -39,10 +39,4 @@ app.use('/public', express.static('public'));
 app.use('/api', apiRouter);
 app.use('/', pagesRouter);
 
-
-var port = Number.parseInt(process.env.PORT, 10) || 8080;
-app.listen(port, () => {
-  console.log(`Listening for requests on port ${port}...`);
-});
-
 module.exports = app;
