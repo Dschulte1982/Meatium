@@ -7,26 +7,36 @@ append head
   link(rel="stylesheet" href="/public/css/home.css")
 
 block content
-  div#header
-    text Medium
-    a(id='Subscribe') Subscribe
-    a(id='Write') Write
-    button(id='show') Sign Up
-    button(id='Get started') Get started
+  header
+    div#header
+        div.logo
+            text(id='medium') Meatium
+        nav
+            a(href='/' id='Subscribe') Subscribe
+            a(href='/' id='Write') Write
+            button(id='show') Sign In
+            button(id='get-started') Get started
   div#headline
     text Get smarter about what matters to you.
   div#subheading
     text Select what you're into. We'll help you find great things to read.
   div#categories
-    button Future
-    button Science
-    button Programming
-    button Technology
-    button Health
-    button Business
-    button Food
+    button Breakfast
+    button Lunch
+    button Dinner
+    button Vegetarian
+    button Vegan
+    button Baking
+    button Appetizers
+    button Sous-Vide
+    button Barbecue/Grilling
+    button Quick and Easy
+  div#existing
+    button#get-started-main Get started
+    div.existing-account Already have an account?
+      a.link-to-other-form(href="/login") Sign in
   form#login-form
-    button(id='close-window' type='close' class='close') X
+    button(id='close-sign-in' type='close' class='close') X
     h1 Welcome Back.
     h2 Sign in to stay up-to-date about food you enjoy, follow authors and categories you love, and interact with other food enthusiasts.
     #errors-container
@@ -37,5 +47,23 @@ block content
     button(type='submit') Sign In
     button(type='demo') Demo User
     div.create-account No account?
-      a.link-to-other-form(href="/signup") Create one
+      a.link-to-other-form(href="/signup" id="show-sign-up") Create one
     h4 Click "Demo User" to jump right into Meatium with a demo user and give Meatium a look around.
+  form#signup-form
+    button(id='close-sign-up' class='close') X
+    h1 Join Meatium.
+    h2 Create an account to receive enticing food stories in your inbox, personalize your homepage, and follow authors and food topics that you love.
+    ul#errors-container
+    input(type="hidden" name="_csrf" value=csrf)
+    +authInput("Email", "email")
+      input(type='email' name='email' placeholder='email here' required)
+    +authInput("Username", "username")
+      input(type="text" name="username" placeholder='username here' required)
+    +authInput("Password","password")
+      input(type='password' name='password' placeholder='password here' required)
+    +authInput("Confirm Password","password2")
+      input(type="password" name="password2" placeholder="confirm your password here" required)
+    button(type='submit') Sign Up
+    div.existing-account Already have an account?
+      a.link-to-other-form(href="/login" id="show-sign-in") Sign in
+    h4 Fill out the above to create an account to browse Meatium or click "Sign in" to jump right into Meatium with a demo user.
