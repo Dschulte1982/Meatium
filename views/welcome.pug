@@ -4,7 +4,6 @@ include include/auth-input.pug
 
 append head
   script(src="/public/js/welcome.js" type="module" defer)
-  script(src="/public/js/home.js" type="module" defer)
   link(rel="stylesheet" href="/public/css/home.css")
 
 block content
@@ -87,4 +86,3 @@ block content
     div.existing-account Already have an account?
       a.link-to-other-form(href="/login" id="show-sign-in") Sign in
     h4 Fill out the above to create an account to browse Meatium or click "Sign in" to jump right into Meatium with a demo user.
-
