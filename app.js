@@ -45,16 +45,4 @@ app.listen(port, () => {
   console.log(`Listening for requests on port ${port}...`);
 });
 
-const { getUserFromToken } = require("./routes/utils/auth");
-
-app.use(async (req, res, next) => {
-  const token = req.cookies.token;
-  if (!token) return next();
-
-  const user = await getUserFromToken(token, res);
-  if (user) req.user = user;
-  else res.clearCookie('token');
-  next();
-});
-
 module.exports = app;
