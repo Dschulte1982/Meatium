@@ -11,13 +11,6 @@ router.get('/login', csrfProtection, (req, res) => {
   res.render('login', { csrf: req.csrfToken() });
 });
 
-router.get('/', csrfProtection, (req, res) => {
-  if (req.user) {
-    res.redirect('/');
-    return;
-  }
-  res.render('welcome', { csrf: req.csrfToken() });
-});
 
 router.get('/signup', csrfProtection, (req, res) => {
   if (req.user) {
@@ -26,6 +19,14 @@ router.get('/signup', csrfProtection, (req, res) => {
   }
   res.render("signup", { csrf: req.csrfToken() });
 });
+
+router.get('/welcome', csrfProtection, (req, res) => {
+  if (req.user) {
+    res.redirect("/");
+    return;
+  }
+  res.render("welcome", { csrf: req.csrfToken() });
+})
 
 
 router.get('/home', csrfProtection, (req, res) => {
@@ -38,11 +39,32 @@ router.get('/home', csrfProtection, (req, res) => {
 
 router.get('/', csrfProtection, (req, res) => {
   if (!req.user) {
-    res.redirect("/login");
+    res.redirect("/welcome");
     return;
   }
-  res.render("/", { username: req.user.username, csrf: req.csrfToken() });
+  res.render("home", { username: req.user.username, csrf: req.csrfToken() });
 });
+
+router.get('/stories/:id(\\d+)', csrfProtection, (req, res) => {
+  if (!req.user) {
+    res.redirect("/welcome");
+    return;
+  }
+  res.render("story-show", {
+    username: req.user.username,
+    articleId: parseInt(req.params.id, 10),
+    csrf: req.csrfToken(),
+  });
+});
+
+router.get('/users/:id(\\d+)', csrfProtection, (req, res) => {
+  if (!req.user) {
+    res.redirect("/welcome");
+    return;
+  }
+  res.json( {message: 'where an individual profile page will go'});
+})
+
 
 router.get('*', (req,res) => {
   res.render('error-page');
