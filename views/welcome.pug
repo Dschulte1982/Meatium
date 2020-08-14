@@ -4,16 +4,18 @@ include include/auth-input.pug
 
 append head
   script(src="/public/js/welcome.js" type="module" defer)
-  link(rel="stylesheet" href="/public/css/home.css")
+  script(src="/public/js/home.js" type="module" defer)
+  link(rel="stylesheet" href="/public/css/welcome.css")
+
 
 block content
   header
     div#header
         div.logo
             text(id='medium') Meatium
-        nav
-            a(href='/' id='Subscribe') Subscribe
-            a(href='/' id='Write') Write
+        div.wrapper-nav
+            a(href='/' id='subscribe') Subscribe
+            a(href='/' id='write') Write
             button(id='show') Sign In
             button(id='get-started') Get started
   div#headline
@@ -47,7 +49,7 @@ block content
       button#get-started-ad Get started
       div#do-things-text
         text#different We do things differently.
-        text#different-sub Medium is not like any other platform on the internet. Our sole purpose is to help you find compelling ideas, knowledge, and perspectives. We don’t serve ads—we serve you, the curious reader who loves to learn new things. Medium is home to thousands of independent voices, and we combine humans and technology to find the best reading for you—and filter out the rest.
+        text#different-sub Meatium is not like any other platform on the internet. Our sole purpose is to help you find compelling cuisines, ideas, and knowledge. We don’t serve ads—we serve you, the curious foodie who loves to read and learn new dishes. Meatium is home to thousands of independent voices, and we combine humans and technology to find the best reading for you—and filter out the rest.
   div#bottom-border
   div#ending-slogan
     div#satisfy

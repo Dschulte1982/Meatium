@@ -4,5 +4,85 @@ append head
   script(src="/public/js/home.js" type="module" defer)
   link(rel="stylesheet" href="/public/css/home.css")
 
-  block content
-    ul.stories-list
+block content
+  ul.stories-list
+  header
+    div#header
+        div.logo
+          text(id='meatium') Meatium
+        button(id="bookmarks")
+        button(id="notifications")
+        button(id="upgrade")
+        button(id='profile')
+    div
+      nav
+        a(href="/" class='main') HOME
+        a(href="/" class='alt') BREAKFAST
+        a(href="/" class='alt') LUNCH
+        a(href="/" class='alt') DINNER
+        a(href="/" class='alt') VEGETARIAN
+        a(href="/" class='alt') VEGAN
+        a(href="/" class='alt') BAKING
+        a(href="/" class='alt') APPETIZERS
+        a(href="/" class='alt') SOUS-VIDE
+        a(href="/" class='alt') BARBECUE/GRILLING
+        a(href="/" class='alt') QUICK AND EASY
+  div#articles
+    div.wrapper
+      div#article-1
+        img(class='resize' src='https://thelemonbowl.com/wp-content/uploads/2013/04/Whole-Wheat-Maple-Bacon-Pancakes-The-Lemon-Bowl.jpg')
+        div
+          text(class='category') Breakfast
+          div(class='title') Bacon Pancakes
+        div
+          text(class='description') Qui natus expedita. Sunt iusto in. Animi non iste.
+        div(class='author')
+          div(class='author') Ezra Herald in Breakfast Worldclass
+          text(class='date') Aug 12 • 5 min read
+    div.wrapper
+      div#article-2
+        img(class='resize' src='https://hips.hearstapps.com/del.h-cdn.co/assets/16/15/1460556716-img-2958.jpg')
+        div
+          text(class='category') Lunch
+          div(class='title') BLTs
+        div
+          text(class='description') In quisquam praesentium. Enim accusamus neque. Saepe distinctio sit.
+        div
+          div(class='author') John Smith in Middle-day Yums
+          text(class='date') Aug 12 • 5 min read
+    div
+      div#popular
+        text#popular-topics Popular Topics on Meatium
+        div#bottom-border
+        div
+          text(class='rank') 01
+          text(class='topic') Breakfast
+        div
+          text(class='rank') 02
+          text(class='topic') Quick And Easy
+        div
+          text(class='rank') 03
+          text(class='topic') Dinner
+        div
+          text(class='rank') 04
+          text(class='topic') Baking
+
+
+    //- div#article-3
+    //-   div(class='title')
+    //-     div Category
+    //-     div Title
+    //-   div(class='description') Description
+    //-   div(class='author') Author
+    //- div#article-4
+    //-   div(class='title')
+    //-     div Category
+    //-     div Title
+    //-   div(class='description') Description
+    //-   div(class='author') Author
+    //- div#article-5
+    //-   div(class='title')
+    //-     div Category
+    //-     div Title
+    //-   div(class='description') Description
+    //-   div(class='author') Author

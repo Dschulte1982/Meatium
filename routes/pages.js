@@ -22,6 +22,14 @@ router.get('/signup', csrfProtection, (req, res) => {
 
 
 router.get('/home', csrfProtection, (req, res) => {
+   if (!req.user) {
+     res.redirect("/login");
+     return;
+   }
+  res.render("home", { username: req.user.username, csrf: req.csrfToken() });
+  res.render("home");
+})
+
   if (!req.user) {
     res.redirect("/login", { csrf: req.csrfToken() });
     return;
@@ -52,7 +60,6 @@ router.get('/new-story', csrfProtection, (req, res) => {
   }
   res.render("new-story", { csrf: req.csrfToken() });
 });
-
 
 router.get('/', csrfProtection, (req, res) => {
   if (!req.user) {
