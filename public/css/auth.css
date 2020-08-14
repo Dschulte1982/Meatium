@@ -28,6 +28,10 @@ h2 {
     flex-direction: column;
 }
 
+#demo-user {
+
+}
+
 .auth-input {
     background-color: rgba(0,0,0,0);
     display: flex;
@@ -81,6 +85,7 @@ button[type="demo"] {
     color: #FFFFFF;
     background-color: #191919;
     font-size: 16px;
+
 }
 
 div.create-account  {
