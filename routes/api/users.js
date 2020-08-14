@@ -81,6 +81,30 @@ handleValidationErrors, asyncHandler( async (req, res, next) => {
   res.cookie('token', token, { maxAge: expiresIn * 1000 });
 
   res.json({ id: user.id, token });
+}));
+
+//Logging into Demo User account
+router.post('/demo',
+validateUsername,
+handleValidationErrors, asyncHandler( async (req, res, next) => {
+  const { username, password } = req.body;
+  const user = await User.findOne({
+    where: {
+      [Op.or]: [{ username }, { email: username }],
+    },
+  });
+
+  if (!user || !user.validatePassword(password)) {
+    const err = new Error('Invalid username/password');
+    err.status = 401;
+    err.title = "Unauthorized";
+    throw err;
+  }
+  const token = await getUserToken(user);
+
+  res.cookie('token', token, {maxAge: expiresIn * 1000 });
+
+  res.json({ id: user.id, token });
 
 }));
 
