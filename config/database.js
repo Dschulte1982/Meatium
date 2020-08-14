@@ -16,6 +16,6 @@ module.exports = {
     seederStorage: "sequelize"
   },
   production: {
-    use_env_variable: 'DATBASE_URL'
+    use_env_variable: 'DATABASE_URL'
   },
 };

@@ -5,19 +5,12 @@ const csrfProtection = require("csurf")({ cookie: true });
 
 router.get('/login', csrfProtection, (req, res) => {
   if (req.user) {
-    res.redirect('/');
+    res.redirect('/home');
     return;
   }
   res.render('login', { csrf: req.csrfToken() });
 });
 
-router.get('/', csrfProtection, (req, res) => {
-  if (req.user) {
-    res.redirect('/');
-    return;
-  }
-  res.render('welcome', { csrf: req.csrfToken() });
-});
 
 router.get('/signup', csrfProtection, (req, res) => {
   if (req.user) {
@@ -29,25 +22,59 @@ router.get('/signup', csrfProtection, (req, res) => {
 
 
 router.get('/home', csrfProtection, (req, res) => {
-  // if (!req.user) {
-  //   res.redirect("/login");
-  //   return;
-  // }
-  // res.render("home", { username: req.user.username, csrf: req.csrfToken() });
+   if (!req.user) {
+     res.redirect("/login");
+     return;
+   }
+  res.render("home", { username: req.user.username, csrf: req.csrfToken() });
   res.render("home");
 })
+
+  if (!req.user) {
+    res.redirect("/login", { csrf: req.csrfToken() });
+    return;
+  }
+  res.render("home", { username: req.user.username, csrf: req.csrfToken() });
+});
+
+router.get('/profile', csrfProtection, (req, res) => {
+  if (req.user) {
+    res.render('profile', { username: req.user.username, csrf: req.csrfToken() });
+    return;
+  }
+  res.render('login', { csrf: req.csrfToken() });
+});
+
+router.get('/stories/:id(\\d+)', csrfProtection, (req, res) => {
+  if(!req.user) {
+    res.render('login', { csrf: req.csrfToken() });
+    return;
+  }
+  res.render('story-show', { csrf: req.csrfToken() });
+});
+
+router.get('/new-story', csrfProtection, (req, res) => {
+  if (!req.user) {
+    res.redirect("/login");
+    return;
+  }
+  res.render("new-story", { csrf: req.csrfToken() });
+});
 
 router.get('/', csrfProtection, (req, res) => {
   if (!req.user) {
     res.redirect("/login");
     return;
   }
-  res.render("/", { username: req.user.username, csrf: req.csrfToken() });
+  res.render("home", { csrf: req.csrfToken() });
 });
+
 
 router.get('*', (req,res) => {
   res.render('error-page');
 });
+
+
 
 module.exports = router;
 

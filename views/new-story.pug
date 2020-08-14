@@ -1,0 +1,24 @@
+extends layout.pug
+
+append head
+  script(src="/public/js/new-story.js" type="module" defer)
+
+block content
+  form#story-form
+    ul#errors-container
+    input(type='hidden' name='_csrf' value=csrf)
+    input(type='text' name='title' placeholder='Title' required)
+    textarea(name='text' placeholder='Tell your story...' required)
+    select(name='categoryId')
+      option(value='') --Please choose a category--
+      option(value=1) Breakfast
+      option(value=2) Lunch
+      option(value=3) Dinner
+      option(value=4) Vegetarian
+      option(value=5) Vegan
+      option(value=6) Baking
+      option(value=7) Appetizers
+      option(value=8) Sous-Vide
+      option(value=9) Barbecue/Grilling
+      option(value=10) Quick and Easy
+    button(type='submit') Publish
