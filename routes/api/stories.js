@@ -66,10 +66,10 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
 }))
 
 router.post('/', csrfProtection, validateStory, asyncHandler(async (req, res) => {
-  const { title, text, category } = req.body;
+  const { title, text, categoryId } = req.body;
   const authorId = req.user.id;
 
-  const newStory = await Article.create({ title, text, category, authorId });
+  const newStory = await Article.create({ title, text, categoryId, authorId });
   const story = await Article.findByPk(newStory.id, {
     include: [
       {

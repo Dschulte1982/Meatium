@@ -1,359 +1,160 @@
-h1 {
-    font-size: 28px;
-    text-align: center;
-    margin-top:30px;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-h2 {
-    font-size: 18px;
-    text-align: center;
-    margin-top:25px;
-    margin-bottom: 45px;
-    padding-left: 60px;
-    padding-right: 60px;
-    color: rgb(41,41,41);
-    font-weight: 300;
-    line-height: 24px;
+#header {
+    height: 100px;
+    background-color: rgba(255,255,255,.95);
+    display: block;
+    width: 100%;
+    padding: 30px 160px;
+    z-index: 500;
 }
 
 .logo {
     float:left;
     font-size: 30px;
-    font-weight: bolder ;
+    font-weight: bolder;
     vertical-align: top;
 }
 
-header {
-    height: 100px;
-    background-color: rgba(255,255,255,.95);
-    display: block;
-    width: 100%;
-    z-index: 500;
-    padding: 20px 30px;
-}
-
-nav {
+button#bookmarks {
     float: right;
     justify-content: right;
     color: rgb(41,41,41);
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    border: 0;
+    outline: 0;
 }
 
-#headline {
-    font-size: 70px;
-    font-weight: 600;
+
+button#notifications {
+    float: right;
+    justify-content: right;
+    color: rgb(41,41,41);
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    border: 0;
+    outline: 0;
+}
+
+button#upgrade {
+    float: right;
+    justify-content: right;
+    color: rgb(41,41,41);
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    border: 0;
+    outline: 0;
+}
+
+
+button#profile {
+    float: right;
+    justify-content: right;
+    color: rgb(41,41,41);
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    border: 0;
+    outline: 0;
+}
+
+nav {
     text-align: center;
-    /* margin-left: 120px;
-    margin-right: 120px; */
-    line-height: 80px;
-    color: rgba(41, 41, 41, 1);
-
+    z-index: 500;
+    height: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
-#subheading {
-    font-size: 22px;
-    font-weight: 600;
-    text-align: center;
-    color: rgba(41, 41, 41, 1);
+nav > a {
+    padding: 15px;
+    font-size: 15px;
+    line-height: 20px;
 }
 
-
-
-#categories {
-    margin-top: 45px;
-    text-align: center;
+a.main {
+    color: rgba(0, 0, 0, 0.84);
 }
 
-#categories > button {
-    font-size: 22px;
-    color:rgba(117, 117, 117, 1);
-    border-radius: 30em;
-    border-style: none;
-    width: 30;
-    height: 30;
-    padding: 6px 12px 6px 36px;
-    margin: 5px;
+a.alt {
+    color: rgba(0, 0, 0, 0.54);
 }
 
-div#qualities {
-    text-align: center;
+div#articles {
+    display: grid;
+    /* flex-direction: column; */
+    grid-template-columns: 3fr 2fr;
+    grid-gap: 1em;
+    margin-left: 160px;
+    margin-top: 30px;
+    font-size: 50px;
 }
 
-div#qualities > text {
-    padding: 25px;
-    color: rgba(41, 41, 41, 1);
-    font-size: 24px
+div#articles > div {
+    grid-column: 1;
+    padding: 25px 0px;
+    line-height: 30px;
 }
 
-#all-on-meatium {
+text.category, text.description, text.date {
+    color:  rgba(0, 0, 0, 0.54);
+}
+
+div.title {
+    font-size: 24px;
     font-weight: bold;
 }
 
-div#no-ads-no-problem {
-    padding: 50px;
-    display: flex;
-    flex-direction: column;
+img {
+    float: right;
 }
+
+.resize {
+    width: 300px;
+    height: auto;
+    /* grid-column: 2; */
+}
+
 
 div#bottom-border {
-    border-top: 1px solid #757575;
-    margin-left: 500px;
-    margin-right: 500px;
+    border-top: 1px solid rgba(0,0,0,.15);
+    /* margin-left: 500px;
+    margin-right: 500px; */
 
 }
 
-#no-ads {
-    font-size: 70px;
-    font-weight: bold;
-}
-
-#no-ads-sub {
-    font-size: 24px;
-    color:rgba(117, 117, 117, 1);
-}
-
-#do-things-differently {
-    padding-top: 50px;
-    padding-bottom: 30px;
-}
-
-#do-things-text {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    padding-left: 300px;
-    padding-right: 90px;
-    line-height: 32px;
-}
-
-#different {
-    font-size: 22px;
-    padding-bottom: 40px;
-    color: black;
-    font-weight: bold;
-}
-
-#different-sub {
-    font-size: 24px;
-    color:rgba(117, 117, 117, 1);
-}
-
-#get-started-ad {
-    float: left;
-    box-sizing: border-box;
-    background-color:  rgba(3, 168, 124, 1);
-    border-width: 1px;
-    border-style: solid;
-    border: 0 none;
-    outline: 0;
-    border-radius: 3px;
-    width: 340px;
-    height: 62px;
-    font-size: 24px;
-    color: white;
-}
-
-
-#ending-slogan {
-    text-align: center;
-}
-
-#satisfy {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 70px;
-    padding: 50px;
-    font-weight: bold;
-}
-
-#get-started-slogan {
-    box-sizing: border-box;
-    background-color:  rgba(3, 168, 124, 1);
-    border-width: 1px;
-    border-style: solid;
-    border: 0 none;
-    outline: 0;
-    border-radius: 3px;
-    width: 340px;
-    height: 62px;
-    font-size: 24px;
-    color: white;
-    margin-bottom: 50px;
-}
-
-#get-started {
-    box-sizing: border-box;
-    background-color:  rgba(3, 168, 124, 1);
-    border: 0 none;
-    outline: 0;
-    border-radius: 2px;
-    width: 150px;
-    height: 36px;
-    color: white;
-}
-
-div#existing {
-    margin-top: 40px;
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-#get-started-main {
-    box-sizing: border-box;
-    background-color:  rgba(3, 168, 124, 1);
-    border-width: 1px;
-    border-style: solid;
-    border: 0 none;
-    outline: 0;
-    border-radius: 3px;
-    width: 340px;
-    height: 62px;
-    font-size: 24px;
-    color: white;
-}
-
-div.existing-account {
-    color: #757575;
-    font-weight: 400;
-    font-size: 18px;
-}
-
-#show {
-    border: 0 none #FFFFFF;
-    background-color: #FFFFFF;
-    outline: 0;
-}
-
-
-div#header text {
-    text-align: center;
-    float: center;
-}
-
-
-
-#login-form, #signup-form {
-    text-align: center;
-    width: 600px;
-    padding: 44px 56px;
+#test > div {
     margin-top: 20px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    border: 5px solid black;
 }
 
-#login-form {
-    display: none;
+.rank {
+    padding: 5px;
+    color:  rgba(0,0,0,.15);
+    font-size: 34px;
 }
 
-#signup-form {
-    display: none;
-}
-
-.auth-input {
-    background-color: rgba(0,0,0,0);
-    display: flex;
-    flex-direction: column;
-    padding-left: 60px;
-    padding-right: 60px;
-
-}
-
-.auth-input label {
-    padding: 5px 10px 0 0;
-    color: rgb(41,41,41);
-    font-weight: 300;
-
-}
-
-.auth-input input {
-    padding: 0px;
-    margin: 10px 60px;
-    background-color: transparent;
-    font-size: 17px;
-    border: 0;
-    border-bottom: 1px solid #757575;
-    text-align: center;
-}
-
-.auth-input input:focus {
-    outline: 0;
-    border-bottom: 1px solid black;
-}
-
-.close {
-    padding: 0;
-    border-radius: 50px;
-    margin-left: 460px;
-    border: 0 none #FFFFFF;
-    background-color: #FFFFFF;
-    text-align: right;
-    outline: 0;
-    color: rgb(117,117,117);
+.topic {
+    color: rgba(0,0,0,.84);
+    font-weight: 600;
     font-size: 18px;
+    align-self: center;
 }
 
-.close:hover {
-    color: black;
+#popular-topics {
+    font-size: 24px;
+    color: rgba(0,0,0,.84);
+    font-weight: 600;
+
+    grid-column-start: 2;
+    grid-row-start: 1;
 }
 
-button[type="submit"] {
-    height: 38px;
-    border-radius: 4px;
-    padding: 0;
-    outline: 0;
-    border: 0;
-    margin: 20px 190px;
-    color: #FFFFFF;
-    background-color: #191919;
-    font-size: 16px;
+.wrapper {
+
 }
 
-button[type="demo"] {
-    height: 38px;
-    border-radius: 4px;
-    padding: 0;
-    outline: 0;
-    border: 0;
-    margin: 0px 190px;
-    color: #FFFFFF;
-    background-color: #191919;
-    font-size: 16px;
-}
-
-div.create-account  {
-    margin-top: 20px;
-    font-size: 18px;
-}
-
-a.link-to-other-form{
-    color: #029E74;
-    font-size: 18px;
-    font-weight: bold;
-    margin-left: 5px;
-}
-
-div.existing-account  {
-    margin-top: 20px;
-    font-size: 18px;
-}
-
-a.link-to-other-form{
-    color: #029E74;
-    font-size: 18px;
-    font-weight: bold;
-    margin-left: 5px;
-}
-
-h4 {
-    font-size: 15px;
-    color: #757575;
-    text-align: center;
-    margin-top:25px;
-    margin-bottom: 45px;
-    padding-left: 79px;
-    padding-right: 79px;
+#popular {
+    float: right;
 }
