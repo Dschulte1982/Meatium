@@ -109,15 +109,25 @@ handleValidationErrors, asyncHandler( async (req, res, next) => {
 }));
 
 //Profile Page - Functionality not currently supported by model associations.
-router.get('/', asyncHandler(async (req, res) => {
-  const claps = await Article.findAll({
+router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
+  const userId = parseInt(req.params.id, 10);
+  const claps = await Like.findAll({
+    where: {
+      userId
+    },
     include: [
       {
         model: User,
-        attributes: ['id'],
-      }],
+        attributes: ['username'],
+      },
+      {
+        model: Article,
+        attributes: ['title']
+      }
+    ],
   });
-res.json({ claps });
+  const user = await User.findByPk(userId);
+res.json({ claps, user });
 }));
 
 module.exports = router;

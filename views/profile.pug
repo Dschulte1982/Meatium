@@ -7,8 +7,12 @@ append head
 block content
   div#profile
     div#profile-details
-        div#profile-name Test Text
+      div#profile-details-header
+        h2#profile-name
         button#edit-profile Edit Profile
-        img(id="profile-pic" src="../assets/bltsandwich.jpg")
-    div#profile-claps Other test text
-        ul.my-claps
+      span#member-since
+      span#follows ? Following ? Followers
+      img(id="profile-pic" src="../assets/profile-pics/anonymous-profile-pic.jpg")
+    div#profile-claps
+      h3#claps-from-header
+      ul.my-claps

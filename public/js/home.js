@@ -20,38 +20,59 @@ const createStoryLi = (story) => {
   const timestamp = createdAt.toLocaleString('en-US', dateOptions);
 
   return `
-    <li>
-      <div class="story">
-        <a href="/stories/${story.id}">
-          <div class="story-headers">
-            <h3 class ="story-title">${story.title}</h3>
-            <div class="story-byline">
-              <p>An interesting byline goes here</p>
-            </div>
-          </div>
-        </a>
-        <div class="author-category">
-          <p>
-            <a href="/users/${story.authorId}">${story.User.username}</a>
-            in
-            <a href="/categories/${story.categoryId}">${story.Category.name}</a>
-          </p>
+    <div class="wrapper">
+      <div class="article">
+        <div class='image-container'>
+          <img class='resize' src="${story.imagePath}">
         </div>
-        <div class="story-info">
-          <p>${timestamp} * 5 min read</p>
+        <div>
+          <div><a class='title' href="/stories/${story.id}">${story.title}</a></div>
         </div>
-        <div class="dropdown-button">
-          <i class="fas fa-chevron-circle-down"></i>
+        <div>
+          <text class='description'>Clever byline goes here</text>
         </div>
-        <ul class="dropdown-menu" style="display: none">
-          <li><button class="delete" data-id=${story.id}>Delete</button></li>
-        </ul>
-        <div class="story-image">
-          <img src="${story.imagePath}">
+        <div>
+          <div class='author'><a href='/users/${story.authorId}'>${story.User.username}</a> in ${story.Category.name}</div>
+          <text class='date'>${timestamp} • 5 min read
         </div>
       </div>
-    </li>
-  `;
+    </div>
+  `
+
+
+  // `
+  //   <li>
+  //     <div class="story">
+  //       <a href="/stories/${story.id}">
+  //         <div class="story-headers">
+  //           <h3 class ="story-title">${story.title}</h3>
+  //           <div class="story-byline">
+  //             <p>An interesting byline goes here</p>
+  //           </div>
+  //         </div>
+  //       </a>
+  //       <div class="author-category">
+  //         <p>
+  //           <a href="/users/${story.authorId}">${story.User.username}</a>
+  //           in
+  //           <a href="/categories/${story.categoryId}">${story.Category.name}</a>
+  //         </p>
+  //       </div>
+  //       <div class="story-info">
+  //         <p>${timestamp} * 5 min read</p>
+  //       </div>
+  //       <div class="dropdown-button">
+  //         <i class="fas fa-chevron-circle-down"></i>
+  //       </div>
+  //       <ul class="dropdown-menu" style="display: none">
+  //         <li><button class="delete" data-id=${story.id}>Delete</button></li>
+  //       </ul>
+  //       <div class="story-image">
+  //         <img src="${story.imagePath}">
+  //       </div>
+  //     </div>
+  //   </li>
+  // `;
 }
 
 const populateStoryList = async () => {
