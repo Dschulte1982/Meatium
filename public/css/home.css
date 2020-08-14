@@ -92,7 +92,8 @@ div#articles {
     font-size: 50px;
 }
 
-div#articles > div {
+
+.wrapper{
     grid-column: 1;
     padding: 25px 0px;
     line-height: 30px;
@@ -102,18 +103,22 @@ text.category, text.description, text.date {
     color:  rgba(0, 0, 0, 0.54);
 }
 
-div.title {
+.title {
     font-size: 24px;
     font-weight: bold;
 }
 
-img {
+
+div.image-container {
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
     float: right;
 }
 
 .resize {
-    width: 300px;
-    height: auto;
+    width: auto;
+    height: 150px;
     /* grid-column: 2; */
 }
 
@@ -147,14 +152,15 @@ div#bottom-border {
     color: rgba(0,0,0,.84);
     font-weight: 600;
 
-    grid-column-start: 2;
-    grid-row-start: 1;
+
 }
 
 .wrapper {
-
+    height: 180px;
 }
 
 #popular {
     float: right;
+    grid-column-start: 2;
+    grid-row-start: 1;
 }
