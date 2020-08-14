@@ -50,7 +50,11 @@ div.wrapper-nav {
 
 #show {
     padding-right: 24px;
+    border: 0 none #FFFFFF;
+    background-color: #FFFFFF;
+    outline: 0;
 }
+
 
 #headline {
     font-size: 70px;
@@ -232,11 +236,6 @@ div.existing-account {
     font-size: 18px;
 }
 
-#show {
-    border: 0 none #FFFFFF;
-    background-color: #FFFFFF;
-    outline: 0;
-}
 
 
 div#header text {
