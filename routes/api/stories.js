@@ -93,7 +93,7 @@ router.delete('/:id(\\d+)', asyncHandler( async (req, res) => {
   }
 
   await story.destroy();
-  res.json({ message: 'successfully deleted' });
+  res.json({ message: `Story "${story.title} successfully deleted` });
 }));
 
 

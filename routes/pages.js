@@ -54,11 +54,11 @@ router.get('/new-story', csrfProtection, (req, res) => {
 });
 
 router.get('/', csrfProtection, (req, res) => {
-  if (!req.user) {
-    res.redirect("/welcome");
+  if (req.user) {
+    res.redirect("/home");
     return;
   }
-  res.render("home", { csrf: req.csrfToken() });
+  res.render("welcome", { csrf: req.csrfToken() });
 });
 
 
