@@ -28,7 +28,7 @@ router.get('/home', csrfProtection, (req, res) => {
      return;
    }
   res.render("home", { csrf: req.csrfToken() });
-}):
+});
 
 
 router.get('/users/:id(\\d+)', csrfProtection, (req, res) => {

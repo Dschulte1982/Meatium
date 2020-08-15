@@ -16,7 +16,7 @@ header {
 }
 
 
-button#bookmarks {
+img#bookmarks {
     box-sizing: border-box;
     float: right;
     justify-content: right;
@@ -29,7 +29,7 @@ button#bookmarks {
 }
 
 
-button#notifications {
+img#notifications {
     box-sizing: border-box;
     float: right;
     justify-content: right;
@@ -41,7 +41,7 @@ button#notifications {
     outline: 0;
 }
 
-button#upgrade {
+img#magnify-glass {
     float: right;
     justify-content: right;
     color: rgb(41,41,41);
@@ -64,15 +64,16 @@ img#user-profile {
     outline: 0;
 }
 
+div.wrapper-nav > img {
+    padding: 5px;
+}
 
 .story-container {
     text-align: center;
-    margin-left: 210px;
-    margin-right: 210px;
 }
 
 article {
-    margin: 364px;
+    margin: 360px;
     margin-top: 0px;
 }
 
@@ -104,7 +105,7 @@ img.story-image{
 .story-text {
     font-size: 21px;
     line-height: 32px;
-    text-align: left;
+    text-align: justify;
 }
 
 div.story-user {
@@ -128,7 +129,7 @@ button.author-follow-button {
     padding: 0px 8px;
 }
 
-button.story-options-button {
+button.story-delete-button {
     background: 0;
     border-color: rgba(117, 117, 117, 1);
     border-width: 1px;

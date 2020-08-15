@@ -16,7 +16,7 @@ header {
 }
 
 
-button#bookmarks {
+img#bookmarks {
     box-sizing: border-box;
     float: right;
     justify-content: right;
@@ -29,7 +29,7 @@ button#bookmarks {
 }
 
 
-button#notifications {
+img#notifications {
     box-sizing: border-box;
     float: right;
     justify-content: right;
@@ -41,7 +41,7 @@ button#notifications {
     outline: 0;
 }
 
-button#upgrade {
+img#magnify-glass {
     float: right;
     justify-content: right;
     color: rgb(41,41,41);
@@ -64,18 +64,33 @@ img#user-profile {
     outline: 0;
 }
 
+div.wrapper-nav > img {
+    padding: 5px;
+}
+
+div.wrapper-nav-categories {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
 nav {
     text-align: center;
     z-index: 500;
     height: 50px;
     padding-top: 20px;
     padding-bottom: 20px;
+    margin: 0px
 }
 
-nav > a {
+div.wrapper-nav-split > a {
     padding: 15px;
     font-size: 15px;
     line-height: 20px;
+}
+
+div.wrapper-nav-split {
+    padding: 3px;
 }
 
 a.main {
@@ -129,8 +144,7 @@ div.image-container {
 
 div#bottom-border {
     border-top: 1px solid rgba(0,0,0,.15);
-    /* margin-left: 500px;
-    margin-right: 500px; */
+    width: 285px;
 
 }
 
@@ -161,6 +175,11 @@ div#bottom-border {
 
 .wrapper {
     height: 180px;
+}
+
+.article {
+    margin-left: 180px;
+    margin-right: 100px;
 }
 
 #popular {
