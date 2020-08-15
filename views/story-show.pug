@@ -2,6 +2,16 @@ extends layout.pug
 
 append head
   script(src="/public/js/story-show.js" type="module" defer)
+  link(rel="stylesheet" href="/public/css/story-show.css")
 
 block content
+  header
+    div#header
+        div.logo
+          text(id='medium') Meatium
+        div.wrapper-nav
+          img(id='user-profile' class="profile-pic" src="/assets/profile-pics/anonymous-profile-pic.jpg")
+          button(id="upgrade")
+          button(id="notifications")
+          button(id="bookmarks")
   .story-container

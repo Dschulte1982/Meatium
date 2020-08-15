@@ -4,7 +4,8 @@ include include/auth-input.pug
 
 append head
   script(src="/public/js/welcome.js" type="module" defer)
-  script(src="/public/js/home.js" type="module" defer)
+  script(src="/public/js/login.js" type="module" defer)
+  script(src="/public/js/signup.js" type="module" defer)
   link(rel="stylesheet" href="/public/css/welcome.css")
 
 
@@ -14,14 +15,47 @@ block content
         div.logo
             text(id='medium') Meatium
         div.wrapper-nav
-            a(href='/' id='subscribe') Subscribe
-            a(href='/' id='write') Write
             button(id='show') Sign In
-            button(id='get-started') Get started
+            button(id='get-started-nav' class='get-started') Get started
+
   div#headline
     text Get smarter about what matters to you.
   div#subheading
     text Select what you're into. We'll help you find great things to read.
+  div#form-sign
+    form#signup-form
+      button(id='close-sign-up' class='close') X
+      h1 Join Meatium.
+      h2 Create an account to receive enticing food stories in your inbox, personalize your homepage, and follow authors and food topics that you love.
+      ul#errors-container
+      input(type="hidden" name="_csrf" value=csrf)
+      +authInput("Email", "email")
+        input(type='email' name='email' placeholder='email here' required)
+      +authInput("Username", "username")
+        input(type="text" name="username" placeholder='username here' required)
+      +authInput("Password","password")
+        input(type='password' name='password' placeholder='password here' required)
+      +authInput("Confirm Password","password2")
+        input(type="password" name="password2" placeholder="confirm your password here" required)
+      button(id='sign-up-button' type='submit') Sign Up
+      div.existing-account Already have an account?
+        button#link-to-login Sign in
+      h4 Fill out the above to create an account to browse Meatium or click "Sign in" to jump right into Meatium with a demo user.
+    form#login-form
+      button(id='close-sign-in' type='close' class='close') X
+      h1 Welcome Back.
+      h2 Sign in to stay up-to-date about food you enjoy, follow authors and categories you love, and interact with other food enthusiasts.
+      #errors-container
+      input(type="hidden" name="_csrf" value=csrf)
+      +authInput("Sign in with email or username","username")
+        input(type='text' name='username' placeholder='email or username here' required)
+      +authInput("Password","password")
+        input(type='password' name='password' placeholder='password here' required)
+      button(id='submit-button' type='submit') Sign In
+      button(id='demo-button' type='demo') Demo User
+      div.create-account No account?
+        button#link-to-sign-up Create one
+      h4 Click "Demo User" to jump right into Meatium with a demo user and give Meatium a look around.
   div#categories
     button Breakfast
     button Lunch
@@ -34,9 +68,9 @@ block content
     button Barbecue/Grilling
     button Quick and Easy
   div#existing
-    button#get-started-main Get started
+    button(id='get-started-main' class='get-started') Get started
     div.existing-account Already have an account?
-      a.link-to-other-form(href="/login") Sign in
+      button#link-to-other-form Sign in
   div#qualities
       text World-class publications.
       text Undiscovered foods.
@@ -56,35 +90,3 @@ block content
       text#satisfy-palate Satisfy your palate.
       text#satisfy-soul Satisfy your soul.
     button#get-started-slogan Get started
-  form#login-form
-    button(id='close-sign-in' type='close' class='close') X
-    h1 Welcome Back.
-    h2 Sign in to stay up-to-date about food you enjoy, follow authors and categories you love, and interact with other food enthusiasts.
-    #errors-container
-    +authInput("Sign in with email or username","username")
-      input(type='text' name='username' placeholder='email or username here' required)
-    +authInput("Password","password")
-      input(type='password' name='password' placeholder='password here' required)
-    button(type='submit') Sign In
-    button(type='demo') Demo User
-    div.create-account No account?
-      a.link-to-other-form(href="/signup" id="show-sign-up") Create one
-    h4 Click "Demo User" to jump right into Meatium with a demo user and give Meatium a look around.
-  form#signup-form
-    button(id='close-sign-up' class='close') X
-    h1 Join Meatium.
-    h2 Create an account to receive enticing food stories in your inbox, personalize your homepage, and follow authors and food topics that you love.
-    ul#errors-container
-    input(type="hidden" name="_csrf" value=csrf)
-    +authInput("Email", "email")
-      input(type='email' name='email' placeholder='email here' required)
-    +authInput("Username", "username")
-      input(type="text" name="username" placeholder='username here' required)
-    +authInput("Password","password")
-      input(type='password' name='password' placeholder='password here' required)
-    +authInput("Confirm Password","password2")
-      input(type="password" name="password2" placeholder="confirm your password here" required)
-    button(type='submit') Sign Up
-    div.existing-account Already have an account?
-      a.link-to-other-form(href="/login" id="show-sign-in") Sign in
-    h4 Fill out the above to create an account to browse Meatium or click "Sign in" to jump right into Meatium with a demo user.

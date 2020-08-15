@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+
 const csrfProtection = require("csurf")({ cookie: true });
 
 router.get('/login', csrfProtection, (req, res) => {
@@ -14,7 +15,7 @@ router.get('/login', csrfProtection, (req, res) => {
 
 router.get('/signup', csrfProtection, (req, res) => {
   if (req.user) {
-    res.redirect("/");
+    res.redirect("/home");
     return;
   }
   res.render("signup", { csrf: req.csrfToken() });
@@ -27,7 +28,8 @@ router.get('/home', csrfProtection, (req, res) => {
      return;
    }
   res.render("home", { csrf: req.csrfToken() });
-});
+}):
+
 
 router.get('/users/:id(\\d+)', csrfProtection, (req, res) => {
   if (req.user) {
@@ -53,6 +55,7 @@ router.get('/new-story', csrfProtection, (req, res) => {
   res.render("new-story", { csrf: req.csrfToken() });
 });
 
+//Landing page - loads Welcome pug
 router.get('/', csrfProtection, (req, res) => {
   if (req.user) {
     res.redirect("/home");
@@ -60,7 +63,6 @@ router.get('/', csrfProtection, (req, res) => {
   }
   res.render("welcome", { csrf: req.csrfToken() });
 });
-
 
 router.get('*', (req,res) => {
   res.render('error-page');
