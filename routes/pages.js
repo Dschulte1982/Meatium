@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+
 const csrfProtection = require("csurf")({ cookie: true });
 
 router.get('/login', csrfProtection, (req, res) => {
@@ -27,7 +28,8 @@ router.get('/home', csrfProtection, (req, res) => {
      return;
    }
   res.render("home", { csrf: req.csrfToken() });
-});
+}):
+
 
 router.get('/users/:id(\\d+)', csrfProtection, (req, res) => {
   if (req.user) {
