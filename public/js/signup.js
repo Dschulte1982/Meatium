@@ -1,8 +1,9 @@
 const form = document.querySelector('#signup-form');
 const errorsContainer = document.querySelector("#errors-container");
+const submitButton = document.getElementById('sign-up-button');
 
 
-form.addEventListener('submit', async (e) => {
+submitButton.addEventListener('click', async (e) => {
   console.log('submitting');
   e.preventDefault();
   const formData = new FormData(form);
@@ -32,5 +33,5 @@ form.addEventListener('submit', async (e) => {
     }
     return;
   }
-  window.location.href = '/';
+  window.location.href = '/home';
 });

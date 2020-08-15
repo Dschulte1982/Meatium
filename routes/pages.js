@@ -15,7 +15,7 @@ router.get('/login', csrfProtection, (req, res) => {
 
 router.get('/signup', csrfProtection, (req, res) => {
   if (req.user) {
-    res.redirect("/");
+    res.redirect("/home");
     return;
   }
   res.render("signup", { csrf: req.csrfToken() });
@@ -55,14 +55,10 @@ router.get('/new-story', csrfProtection, (req, res) => {
   res.render("new-story", { csrf: req.csrfToken() });
 });
 
+//Landing page - loads Welcome pug
 router.get('/', csrfProtection, (req, res) => {
-  if (!req.user) {
-    res.redirect("/welcome");
-    return;
-  }
-  res.render("home", { csrf: req.csrfToken() });
+  res.render('welcome', { csrf: req.csrfToken() });
 });
-
 
 router.get('*', (req,res) => {
   res.render('error-page');
