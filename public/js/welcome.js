@@ -2,17 +2,71 @@
 
 const form = document.querySelector('#login-form');
 const signInButton = document.getElementById('show')
-const getStartedButton = document.getElementById('get-started');
+const getStartedNav = document.getElementById('get-started-nav');
+const getStartedMain = document.getElementById('get-started-main');
+const getStartedAd = document.getElementById('get-started-ad');
+const getStartedSlogan = document.getElementById('get-started-slogan');
 const closeSignInButton = document.getElementById('close-sign-in');
 const closeSignUpButton = document.getElementById('close-sign-up');
+const signInLink = document.getElementById('link-to-other-form');
+const signInLinkButton = document.getElementById('link-to-login');
+const signUpLinkButton = document.getElementById('link-to-sign-up');
 
 
 signInButton.addEventListener('click', e => {
+    const signup = document.getElementById('signup-form');
+    if (signup.style.display = 'flex') {
+      signup.style.display = 'none';
+    }
     document.getElementById('login-form').style.display = "flex";
+});
+
+signUpLinkButton.addEventListener('click', e => {
+  const signup = document.getElementById('signup-form');
+  if (signup.style.display = 'flex') {
+    signup.style.display = 'none';
+  }
+  document.getElementById('login-form').style.display = "flex";
+});
+
+getStartedNav.addEventListener('click', e => {
+    const login = document.getElementById('login-form');
+    if (login.style.display = 'flex') {
+      login.style.display = 'none';
+    }
+    document.getElementById('signup-form').style.display = "flex";
 })
 
-getStartedButton.addEventListener('click', e => {
-    document.getElementById('signup-form').style.display = "flex";
+signInLinkButton.addEventListener('click', e => {
+  const login = document.getElementById('login-form');
+  if (login.style.display = 'flex') {
+    login.style.display = 'none';
+  }
+  document.getElementById('signup-form').style.display = "flex";
+});
+
+getStartedMain.addEventListener('click', e => {
+  const login = document.getElementById('login-form');
+  if (login.style.display = 'flex') {
+    login.style.display = 'none';
+  }
+  document.getElementById('signup-form').style.display = "flex";
+})
+
+getStartedAd.addEventListener('click', e => {
+  const login = document.getElementById('login-form');
+  if (login.style.display = 'flex') {
+    login.style.display = 'none';
+  }
+  document.getElementById('signup-form').style.display = "flex";
+})
+
+getStartedSlogan.addEventListener('click', e => {
+  const login = document.getElementById('login-form');
+  if (login.style.display = 'flex') {
+    login.style.display = 'none';
+  }
+  document.getElementById('signup-form').style.display = "flex";
 })
 
 closeSignInButton.addEventListener('click', e => {
@@ -22,6 +76,11 @@ closeSignInButton.addEventListener('click', e => {
 closeSignUpButton.addEventListener('click', e => {
     document.getElementById('signup-form').style.display = "none";
 })
+
+signInLink.addEventListener('click', e => {
+  document.getElementById('login-form').style.display = "flex";
+})
+
 
 form.addEventListener('submit', async (e) => {
   console.log('submitting');

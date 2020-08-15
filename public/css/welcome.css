@@ -195,7 +195,7 @@ div#bottom-border {
     margin-bottom: 50px;
 }
 
-#get-started {
+#get-started-nav {
     box-sizing: border-box;
     background-color:  rgba(3, 168, 124, 1);
     border: 0 none;
@@ -244,17 +244,16 @@ div#header text {
     float: center;
 }
 
-
-
 #login-form, #signup-form {
     text-align: center;
     width: 600px;
+    height: 800px;
     padding: 44px 56px;
     margin-top: 20px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
     border: 5px solid black;
+     display: flex;
+    flex-direction: column;
 }
 
 #login-form {
@@ -262,7 +261,7 @@ div#header text {
 }
 
 #signup-form {
-    display: none;
+     display: none;
 }
 
 .auth-input {
@@ -341,23 +340,39 @@ div.create-account  {
     font-size: 18px;
 }
 
-a.link-to-other-form{
+#link-to-other-form{
     color: #029E74;
     font-size: 18px;
     font-weight: bold;
     margin-left: 5px;
+    background: none!important;
+    border: none;
+    padding:0!important;
+}
+
+#link-to-login {
+    color: #029E74;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 5px;
+    background: none!important;
+    border: none;
+    padding:0!important;
+}
+
+#link-to-sign-up{
+    color: #029E74;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 5px;
+    background: none!important;
+    border: none;
+    padding:0!important;
 }
 
 div.existing-account  {
     margin-top: 20px;
     font-size: 18px;
-}
-
-a.link-to-other-form{
-    color: #029E74;
-    font-size: 18px;
-    font-weight: bold;
-    margin-left: 5px;
 }
 
 h4 {
@@ -368,4 +383,12 @@ h4 {
     margin-bottom: 45px;
     padding-left: 79px;
     padding-right: 79px;
+}
+
+#form-sign {
+    position: fixed;
+    z-index: 3;
+    left: 35%;
+    bottom: 6%;
+    background-color: white;
 }
