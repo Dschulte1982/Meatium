@@ -57,7 +57,11 @@ router.get('/new-story', csrfProtection, (req, res) => {
 
 //Landing page - loads Welcome pug
 router.get('/', csrfProtection, (req, res) => {
-  res.render('welcome', { csrf: req.csrfToken() });
+  if (req.user) {
+    res.redirect("/home");
+    return;
+  }
+  res.render("welcome", { csrf: req.csrfToken() });
 });
 
 router.get('*', (req,res) => {

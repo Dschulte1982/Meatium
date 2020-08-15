@@ -109,7 +109,7 @@ handleValidationErrors, asyncHandler( async (req, res, next) => {
 }));
 
 //Profile Page - Functionality not currently supported by model associations.
-router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
+router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
   const userId = parseInt(req.params.id, 10);
   const claps = await Like.findAll({
     where: {
@@ -128,6 +128,20 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   });
   const user = await User.findByPk(userId);
 res.json({ claps, user });
+}));
+
+router.delete('/:id(\\d+)', asyncHandler( async (req, res) => {
+  const user = await User.findByPk(req.params.id);
+
+  if (!user) {
+    const err = new Error('User not found');
+    err.status = 404;
+    next(err);
+    return;
+  }
+
+  await user.destroy();
+  res.json({ message: `User "${user.username} successfully deleted` });
 }));
 
 module.exports = router;

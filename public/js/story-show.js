@@ -33,7 +33,7 @@ const createStory = (story) => {
                       <div class="story-date-length">${timestamp} • 5 min</div>
                     </div>
                   <div>
-                    <button type="button" class="story-options-button">...</button>
+                    <button type="button" class="story-delete-button">Delete Story</button>
                   </div>
                 </div>
               </div>
@@ -58,6 +58,18 @@ const populateStory = async () => {
   const { story } = await getStory(storyId);
   const storyEle = createStory(story);
   storyContainer.innerHTML += storyEle;
+
+  const deleteButton = document.querySelector('.story-delete-button');
+  console.log('The deleteButton contains: ', deleteButton);
+
+  deleteButton.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const storyId = window.location.pathname.split('/')[2];
+
+    const res = await fetch(`/api/stories/${storyId}`, { method: "DELETE" });
+
+    if (res.ok) window.location.href = '/home';
+  });
 }
 
 populateStory();
