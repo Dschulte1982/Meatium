@@ -36,10 +36,10 @@ router.get('/', asyncHandler(async (req, res) => {
     {
       model: Category,
       attributes: ['name'],
-    }],
+    }
+  ],
     order: [['createdAt', 'DESC']],
   });
-
   res.json({ stories });
 }));
 
@@ -53,6 +53,10 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
       {
         model: Category,
         attributes: ['name'],
+      },
+      {
+        model: Comment,
+        attributes: ['text'],
       },
     ],
   });
@@ -98,26 +102,25 @@ router.delete('/:id(\\d+)', asyncHandler( async (req, res) => {
 }));
 
 router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
-  const story = await Article.findByPk(req.params.id, {
-    include: [
-      {
-        model: User,
-        attributes: ['username'],
-      },
-      {
-        model: Category,
-        attributes: ['name'],
-      },
-    ],
+  const comments = await Comment.findByPk({
+    // include: [
+    //   {
+    //     model: Article,
+    //     attributes: ['id'],
+    //   },
+    // ],
+    where: {
+      id: '1'
+    }
   });
 
-  if (!story) {
-    const err = new Error('Story not found');
-    err.status = 404;
-    next(err);
-    return;
-  }
-  res.json({ story });
+  // if (!story) {
+  //   const err = new Error('Story not found');
+  //   err.status = 404;
+  //   next(err);
+  //   return;
+  // }
+  res.json({ comments });
 }))
 
 module.exports = router;

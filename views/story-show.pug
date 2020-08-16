@@ -5,6 +5,14 @@ append head
   link(rel="stylesheet" href="/public/css/story-show.css")
 
 block content
+  div(id='comments')
+    div#responses Responses ()
+    div#comment-text-area
+      textarea(id="comment-text", cols="50", rows="10" placeholder="What are your thoughts...")
+      div#text-buttons
+        button(id='cancel' class='text-buttons') Cancel
+        button(id='respond' class='text-buttons') Respond
+    #comments-container
   header
     div#header
         div.logo
@@ -17,6 +25,3 @@ block content
   .story-container
   div#click-to-comment
     button#comment-button Be the First to Comment...
-  div(id='comments')
-    #comments-container
-    textarea(name="comment-text", cols="50", rows="10")
