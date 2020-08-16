@@ -73,8 +73,8 @@ div.wrapper-nav > img {
 }
 
 article {
-    margin-left: 30%;
-    margin-right: 30%;
+    margin: 360px;
+    margin-bottom: 150px;
     margin-top: 0px;
 }
 
@@ -243,4 +243,107 @@ div.story-date-length {
     background-color: rgba(3, 168, 124, 0.2);
     border-radius: 5px;
     color: white;
+
+.side-bar {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    position: fixed;
+    z-index: 501;
+    top: 1%;
+    left: 8%;
+    background-color: white;
+}
+
+.side-bar > div {
+    margin-top: 15px;
+}
+
+.side-bar > div > button {
+    align-items: center;
+    margin-right: 5px;
+    border: 0;
+    outline: 0;
+    background-color: white;
+}
+
+.side-bar > div > button#bookmark {
+    padding-top: 2px;
+}
+
+#clap{
+    padding: 1px;
+}
+
+#comment{
+    padding: 1px;
+}
+
+.clapCounter {
+    font-size: 15px;
+    color:  rgba(0, 0, 0, 0.54);
+    position: fixed;
+    top: 3.75%;
+}
+
+.commentCounter {
+    font-size: 15px;
+    color:  rgba(0, 0, 0, 0.54);
+    position: fixed;
+    top: 8.5%
+}
+
+div.wrapper-signature {
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* div.wrapper-signature > div {
+    display: inline-block;
+} */
+
+#decrease-clap {
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 5px;
+    border:0;
+    outline: 0;
+    font-weight: 500;
+}
+
+button#signature-clap {
+    align-items: center;
+    margin-right: 5px;
+    border: 0;
+    outline: 0;
+    background-color: white;
+}
+
+button#signature-comment {
+    align-items: center;
+    border: 0;
+    outline: 0;
+    background-color: white;
+}
+
+#sigClapCounter {
+    font-size: 15px;
+    color:  rgba(0, 0, 0, 0.54);
+}
+
+#sigCommentCounter {
+    font-size: 15px;
+    color:  rgba(0, 0, 0, 0.54);
+}
+
+button#signature-bookmark {
+    align-items: center;
+    margin-left: 5px;
+    border: 0;
+    outline: 0;
+    background-color: white;
 }
