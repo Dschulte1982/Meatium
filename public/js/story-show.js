@@ -1,3 +1,46 @@
+const clapButton = document.getElementById('clap')
+const clapText = document.getElementById('clap-text')
+const commentButton = document.getElementById('comment')
+const commentText = document.getElementById('comment-text')
+
+const sigClapButton = document.getElementById('signature-clap')
+const sigClapText = document.getElementById('sig-clap-text')
+const sigCommentButton = document.getElementById('signature-comment')
+const sigCommentText = document.getElementById('sig-comment-text')
+
+const decreaseClapButton = document.getElementById('decrease-clap')
+
+let clapCount = 0;
+let commentCount = 0;
+
+clapButton.addEventListener('click', e => {
+  clapCount += 1;
+  clapText.innerHTML = `<span class='clapCounter'>${clapCount}</span>`;
+});
+
+commentButton.addEventListener('click', e => {
+  commentCount += 1;
+  commentText.innerHTML = `<span class='commentCounter'>${commentCount}</span>`;
+});
+
+sigClapButton.addEventListener('click', e => {
+  clapCount += 1;
+  sigClapText.innerHTML = `<span id='sigClapCounter'>${clapCount} claps</span>`;
+});
+
+sigCommentButton.addEventListener('click', e => {
+  commentCount += 1;
+  sigCommentText.innerHTML = `<span id='sigCommentCounter'>${commentCount} comments</span>`;
+});
+
+decreaseClapButton.addEventListener('click', e => {
+  if(clapCount !== 0){
+    clapCount -= 1;
+  }
+
+  clapText.innerHTML = `<span class='clapCounter'>${clapCount}</span>`;
+  sigClapText.innerHTML = `<span id='sigClapCounter'>${clapCount} claps</span>`;
+});
 
 
 const getStory = async (id) => {
