@@ -88,18 +88,55 @@ div.wrapper-nav {
     border-style: none;
     width: 30;
     height: 30;
-    padding: 6px 12px 6px 36px;
+    padding: 6px 12px 6px 12px;
     margin: 5px;
 }
 
+
 div#qualities {
+    display: flex;
+    flex-direction: row;
     text-align: center;
+    justify-items: center;
+    position: absolute;
+    left: 300px;
 }
 
-div#qualities > text {
+div.qualities {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+div.qualities > text {
     padding: 25px;
     color: rgba(41, 41, 41, 1);
-    font-size: 24px
+    font-size: 24px;
+}
+
+.circle {
+    height: 25px;
+    width: 25px;
+    background-color: rgba(3, 168, 124, 1);
+    color: white;
+    padding-top: 2px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.hashtag {
+    height: 25px;
+    width: 25px;
+    background-color: black;
+    color: white;
+    padding-top: 3px;
+    border-radius: 50%;
+    display: inline-block;
+    float: left;
+}
+
+span.space {
+    float: left;
+    padding-right: 5px;
 }
 
 #all-on-meatium {
@@ -150,8 +187,15 @@ div#bottom-border {
     font-weight: bold;
 }
 
-#different-sub {
+.different-sub {
     font-size: 24px;
+    color:rgba(117, 117, 117, 1);
+}
+
+#text-highlight {
+    font-size: 24px;
+    line-height: 32px;
+    background-color: rgba(12, 242, 143, 0.2);
     color:rgba(117, 117, 117, 1);
 }
 

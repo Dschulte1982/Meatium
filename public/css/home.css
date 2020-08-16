@@ -2,7 +2,7 @@ header {
     height: 100px;
     background-color: rgba(255,255,255,.95);
     display: block;
-    width: 80%;
+    width: 90%;
     z-index: 500;
     padding: 20px 20px;
 }
@@ -12,7 +12,7 @@ header {
     font-size: 30px;
     font-weight: bolder ;
     vertical-align: top;
-    margin-left: 300px;
+    margin-left: 210px;
 }
 
 
@@ -169,8 +169,6 @@ div#bottom-border {
     font-size: 24px;
     color: rgba(0,0,0,.84);
     font-weight: 600;
-
-
 }
 
 .wrapper {
@@ -178,7 +176,7 @@ div#bottom-border {
 }
 
 .article {
-    margin-left: 180px;
+    margin-left: 120px;
     margin-right: 100px;
 }
 
