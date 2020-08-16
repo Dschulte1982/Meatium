@@ -1,3 +1,4 @@
+
 const clapButton = document.getElementById('clap')
 const clapText = document.getElementById('clap-text')
 const commentButton = document.getElementById('comment')
@@ -41,7 +42,6 @@ decreaseClapButton.addEventListener('click', e => {
   clapText.innerHTML = `<span class='clapCounter'>${clapCount}</span>`;
   sigClapText.innerHTML = `<span id='sigClapCounter'>${clapCount} claps</span>`;
 });
-
 
 const getStory = async (id) => {
   const res = await fetch('/api/stories/' + id);
@@ -93,6 +93,33 @@ const createStory = (story) => {
   `;
 }
 
+const getComments = async (id) => {
+  const res = await fetch('/api/stories/' + id);
+  const data = await res.json();
+  return data;
+};
+
+const createComment = async (story) => {
+  console.log(story.Comments)
+  const commentArray = story.Comments;
+  console.log(commentArray, 'this is the comments')
+  let textArea = '';
+  for (let i = 0; i < commentArray.length; i++) {
+    const item = commentArray[i];
+    const value = Object.values(item);
+    console.log(value);
+  let textStuff =
+          `<div>
+            <section class='comment-content'
+              <p class='comment text'>${value[0]}</p>
+            </section>
+          </div>
+          `
+          textArea += textStuff;
+  }
+  return textArea;
+};
+
 const populateStory = async () => {
   const storyContainer = document.querySelector(".story-container");
 
@@ -115,4 +142,24 @@ const populateStory = async () => {
   });
 }
 
+const populateComments = async () => {
+  const commentsContainer = document.querySelector('#comments-container');
+  const storyId = window.location.pathname.split('/')[2];
+  const { story } = await getComments(storyId)
+  console.log(story, 'this is the story')
+  const commentEle = await createComment(story)
+  console.log(commentEle)
+  commentsContainer.innerHTML += commentEle
+};
+
+
 populateStory();
+populateComments();
+
+const responseButton = document.getElementById('comment-button');
+
+responseButton.addEventListener('click', e => {
+  console.log('button clicked')
+  const commentsDiv = document.getElementById('comments-container');
+  document.getElementById('comments-container').style.display = "flex";
+})

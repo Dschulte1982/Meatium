@@ -4,9 +4,10 @@ const { getUserToken } = require('../utils/auth');
 const csrfProtection = require('csurf')({ cookie: true });
 
 const db = require('../../db/models');
-const { Article, User, Category } = db;
+const { Article, User, Category, Comment } = db;
 
 const { check } = require('express-validator');
+const { restart } = require('nodemon');
 
 
 const router = express.Router();
@@ -35,10 +36,10 @@ router.get('/', asyncHandler(async (req, res) => {
     {
       model: Category,
       attributes: ['name'],
-    }],
+    }
+  ],
     order: [['createdAt', 'DESC']],
   });
-
   res.json({ stories });
 }));
 
@@ -52,6 +53,10 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
       {
         model: Category,
         attributes: ['name'],
+      },
+      {
+        model: Comment,
+        attributes: ['text'],
       },
     ],
   });
@@ -96,5 +101,26 @@ router.delete('/:id(\\d+)', asyncHandler( async (req, res) => {
   res.json({ message: `Story "${story.title} successfully deleted` });
 }));
 
+router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
+  const comments = await Comment.findByPk({
+    // include: [
+    //   {
+    //     model: Article,
+    //     attributes: ['id'],
+    //   },
+    // ],
+    where: {
+      id: '1'
+    }
+  });
+
+  // if (!story) {
+  //   const err = new Error('Story not found');
+  //   err.status = 404;
+  //   next(err);
+  //   return;
+  // }
+  res.json({ comments });
+}))
 
 module.exports = router;
