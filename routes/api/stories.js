@@ -4,9 +4,10 @@ const { getUserToken } = require('../utils/auth');
 const csrfProtection = require('csurf')({ cookie: true });
 
 const db = require('../../db/models');
-const { Article, User, Category } = db;
+const { Article, User, Category, Comment } = db;
 
 const { check } = require('express-validator');
+const { restart } = require('nodemon');
 
 
 const router = express.Router();
@@ -96,5 +97,27 @@ router.delete('/:id(\\d+)', asyncHandler( async (req, res) => {
   res.json({ message: `Story "${story.title} successfully deleted` });
 }));
 
+router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
+  const story = await Article.findByPk(req.params.id, {
+    include: [
+      {
+        model: User,
+        attributes: ['username'],
+      },
+      {
+        model: Category,
+        attributes: ['name'],
+      },
+    ],
+  });
+
+  if (!story) {
+    const err = new Error('Story not found');
+    err.status = 404;
+    next(err);
+    return;
+  }
+  res.json({ story });
+}))
 
 module.exports = router;
