@@ -10,18 +10,47 @@ const sigCommentButton = document.getElementById('signature-comment')
 const sigCommentText = document.getElementById('sig-comment-text')
 
 const decreaseClapButton = document.getElementById('decrease-clap')
+const commentCloseButton = document.getElementById('close-comments')
+const commentCancelButton = document.getElementById('cancel')
+const textButtons = document.getElementById('text-buttons');
+const bottomCommentButton = document.getElementById('comment');
+const respondButton = document.getElementById('respond');
 
 let clapCount = 0;
-let commentCount = 0;
+let commentsChecked = false;
 
 clapButton.addEventListener('click', e => {
   clapCount += 1;
   clapText.innerHTML = `<span class='clapCounter'>${clapCount}</span>`;
 });
 
+commentText.addEventListener('click', e => {
+  textButtons.style.display = 'flex';
+  textButtons.style.justifyContent = 'flex-end';
+})
+
+commentCancelButton.addEventListener('click', e => {
+  textButtons.style.display = 'none';
+  textButtons.style.outline = 'none';
+})
+
 commentButton.addEventListener('click', e => {
-  commentCount += 1;
-  commentText.innerHTML = `<span class='commentCounter'>${commentCount}</span>`;
+  const commentsBox = document.getElementById('comments');
+
+  if (commentsChecked === false) {
+    commentsBox.style.display = 'block'
+    commentsChecked = true;
+  } else if (commentsChecked === true) {
+    console.log('hide')
+    commentsBox.style.display = 'none'
+    commentsChecked = false;
+  }
+});
+
+commentCloseButton.addEventListener('click', e => {
+  const commentsBox = document.getElementById('comments');
+  commentsBox.style.display = 'none';
+  commentsChecked = false;
 });
 
 sigClapButton.addEventListener('click', e => {
@@ -30,8 +59,15 @@ sigClapButton.addEventListener('click', e => {
 });
 
 sigCommentButton.addEventListener('click', e => {
-  commentCount += 1;
-  sigCommentText.innerHTML = `<span id='sigCommentCounter'>${commentCount} comments</span>`;
+  const commentsBox = document.getElementById('comments');
+
+  if (commentsChecked === false) {
+    commentsBox.style.display = 'block'
+    commentsChecked = true;
+  } else if (commentsChecked === true) {
+    commentsBox.style.display = 'none'
+    commentsChecked = false;
+  }
 });
 
 decreaseClapButton.addEventListener('click', e => {
@@ -100,25 +136,33 @@ const getComments = async (id) => {
 };
 
 const createComment = async (story) => {
-  console.log(story.Comments)
+  console.log(story);
   const commentArray = story.Comments;
-  console.log(commentArray, 'this is the comments')
   let textArea = '';
   for (let i = 0; i < commentArray.length; i++) {
     const item = commentArray[i];
     const value = Object.values(item);
-    console.log(value);
+    const user = story.User.username;
   let textStuff =
-          `<div>
-            <section class='comment-content'
+          `
+           <div class='user-info'>
+             <img class='user-image' src="https://img.icons8.com/color/48/000000/circled-user-male-skin-type-4.png"/>
+             <div class='user-name'> ${user}</div>
+           </div>
+             <section class='comment-content'
               <p class='comment text'>${value[0]}</p>
-            </section>
-          </div>
+             </section>
           `
           textArea += textStuff;
   }
   return textArea;
 };
+
+const createResponses = async (story) => {
+  const comments = story.Comments;
+  let responseSize = comments.length;
+  return responseSize;
+}
 
 const populateStory = async () => {
   const storyContainer = document.querySelector(".story-container");
@@ -146,20 +190,19 @@ const populateComments = async () => {
   const commentsContainer = document.querySelector('#comments-container');
   const storyId = window.location.pathname.split('/')[2];
   const { story } = await getComments(storyId)
-  console.log(story, 'this is the story')
   const commentEle = await createComment(story)
-  console.log(commentEle)
   commentsContainer.innerHTML += commentEle
 };
 
+const populateResponses = async () => {
+  const responseContainer = document.getElementById('responses');
+  const storyId = window.location.pathname.split('/')[2];
+  const { story } = await getStory(storyId);
+  const responseEle = await createResponses(story);
+  responseContainer.innerHTML += ` (${responseEle})`;
 
+}
+
+populateResponses();
 populateStory();
 populateComments();
-
-const responseButton = document.getElementById('comment-button');
-
-responseButton.addEventListener('click', e => {
-  console.log('button clicked')
-  const commentsDiv = document.getElementById('comments-container');
-  document.getElementById('comments-container').style.display = "flex";
-})
