@@ -4,9 +4,10 @@ const { getUserToken } = require('../utils/auth');
 const csrfProtection = require('csurf')({ cookie: true });
 
 const db = require('../../db/models');
-const { Article, User, Category } = db;
+const { Article, User, Category, Comment } = db;
 
 const { check } = require('express-validator');
+const { restart } = require('nodemon');
 
 
 const router = express.Router();
@@ -35,10 +36,10 @@ router.get('/', asyncHandler(async (req, res) => {
     {
       model: Category,
       attributes: ['name'],
-    }],
+    }
+  ],
     order: [['createdAt', 'DESC']],
   });
-
   res.json({ stories });
 }));
 
@@ -47,11 +48,15 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
     include: [
       {
         model: User,
-        attributes: ['username'],
+        attributes: ['username', 'id'],
       },
       {
         model: Category,
         attributes: ['name'],
+      },
+      {
+        model: Comment,
+        attributes: ['text', 'userId'],
       },
     ],
   });
@@ -82,6 +87,23 @@ router.post('/', csrfProtection, validateStory, asyncHandler(async (req, res) =>
   res.json({ story });
 }));
 
+router.post('/comments', asyncHandler(async (req, res) => {
+  const { articleId, text } = req.body;
+  const userId = req.user.id;
+
+
+  const newComment = await Comment.create({ articleId, userId, text });
+  const comment = await Comment.findByPk(newComment.id, {
+    include: [
+      {
+      model: User,
+      attributes: ['username'],
+    },
+    ]
+  })
+  res.json({ comment });
+}))
+
 router.delete('/:id(\\d+)', asyncHandler( async (req, res) => {
   const story = await Article.findByPk(req.params.id);
 
@@ -96,5 +118,26 @@ router.delete('/:id(\\d+)', asyncHandler( async (req, res) => {
   res.json({ message: `Story "${story.title} successfully deleted` });
 }));
 
+router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
+  const comments = await Comment.findByPk({
+    // include: [
+    //   {
+    //     model: Article,
+    //     attributes: ['id'],
+    //   },
+    // ],
+    where: {
+      id: '1'
+    }
+  });
+
+  // if (!story) {
+  //   const err = new Error('Story not found');
+  //   err.status = 404;
+  //   next(err);
+  //   return;
+  // }
+  res.json({ comments });
+}))
 
 module.exports = router;

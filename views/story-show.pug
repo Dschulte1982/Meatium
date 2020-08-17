@@ -2,16 +2,53 @@ extends layout.pug
 
 append head
   script(src="/public/js/story-show.js" type="module" defer)
+  script(src="/public/js/new-comment.js" type="module" defer)
   link(rel="stylesheet" href="/public/css/story-show.css")
 
 block content
+  div(id='comments')
+    button#close-comments X
+    div#responses Responses
+    div#comment-text-area
+      img(id='userprofile' src="https://img.icons8.com/color/48/000000/circled-user-male-skin-type-4.png")
+      div#text-wrapper
+       textarea(id="comment-text", cols="50", rows="10" placeholder="What are your thoughts...")
+      div#text-buttons
+        button(id='cancel' class='text-buttons') Cancel
+        button(id='respond' class='text-buttons') Respond
+    #comments-container
   header
     div#header
         div.logo
-          text(id='medium') Meatium
+          a(id='medium' href="/") Meatium
         div.wrapper-nav
           img(id='user-profile' class="profile-pic" src="/assets/profile-pics/anonymous-profile-pic.jpg")
-          button(id="upgrade")
-          button(id="notifications")
-          button(id="bookmarks")
+          img(id="notifications" src="/assets/headers/notification-bell.jpg")
+          img(id="bookmarks" src="/assets/headers/bookmark-save.jpg")
+          img(id="magnify-glass" src="/assets/headers/magnifying-glass.jpg")
   .story-container
+  div.side-bar
+    div.inline-block-test
+      button(id='clap')
+        img(src='../../assets/headers/clap.JPG')
+      text#clap-text
+    div
+      button(id='comment')
+        img(src='../../assets/headers/comment.JPG')
+      text#comment-text
+    div
+      button(id='bookmark')
+        img(src='../../assets/headers/bookmark.JPG')
+  div.wrapper-signature
+    div
+      button(id='signature-clap')
+        img(src='../../assets/headers/clap.JPG')
+      text#sig-clap-text
+      button(id='signature-comment')
+        img(src='../../assets/headers/comment.JPG')
+      text#sig-comment-text
+    div
+      img(id="signature-social-media" src="/assets/headers/social-media.jpg")
+      button(id='signature-bookmark')
+        img(src='../../assets/headers/bookmark.JPG')
+      button#decrease-clap ▬

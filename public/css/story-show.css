@@ -7,7 +7,8 @@ header {
     padding: 20px 20px;
 }
 
-.logo {
+
+.logo > a {
     float: left;
     font-size: 30px;
     font-weight: bolder ;
@@ -16,7 +17,7 @@ header {
 }
 
 
-button#bookmarks {
+img#bookmarks {
     box-sizing: border-box;
     float: right;
     justify-content: right;
@@ -29,7 +30,7 @@ button#bookmarks {
 }
 
 
-button#notifications {
+img#notifications {
     box-sizing: border-box;
     float: right;
     justify-content: right;
@@ -41,7 +42,7 @@ button#notifications {
     outline: 0;
 }
 
-button#upgrade {
+img#magnify-glass {
     float: right;
     justify-content: right;
     color: rgb(41,41,41);
@@ -64,15 +65,17 @@ img#user-profile {
     outline: 0;
 }
 
+div.wrapper-nav > img {
+    padding: 5px;
+}
 
 .story-container {
     text-align: center;
-    margin-left: 210px;
-    margin-right: 210px;
 }
 
 article {
-    margin: 364px;
+    margin: 360px;
+    margin-bottom: 150px;
     margin-top: 0px;
 }
 
@@ -104,7 +107,7 @@ img.story-image{
 .story-text {
     font-size: 21px;
     line-height: 32px;
-    text-align: left;
+    text-align: justify;
 }
 
 div.story-user {
@@ -153,4 +156,248 @@ div.story-date-length {
     font-size: 16px;
     line-height: 20px;
     padding: 0px 8px;
+}
+
+#click-to-comment {
+    padding: 20px 20px;
+    position: relative;
+    border: 3px solid green;
+    border-radius: 8px 8px;
+    width: 300px;
+    margin: auto;
+    text-align: center;
+    margin-top: 40px;
+}
+
+#comment-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+}
+
+#close-comments {
+    float: right;
+    margin-top: 5px;
+    margin-right: 5px;
+    background: none;
+    border: none;
+}
+
+#user-profile {
+    width: 50px;
+    height: 50px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+
+.user-image {
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.user-name {
+    margin-left: 10px;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+#comment-text-area {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3), inset 0 -3px 3px rgba(0,0,0,0.1);
+    outline: none;
+}
+
+#text-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+#comment-text {
+    overflow: auto;
+    resize: none;
+    outline: none;
+    border: none;
+    width: 300px;
+    height: 50px;
+    font-size: 12px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 15px;
+    color: black;
+}
+
+#comments {
+    display: none;
+    position: fixed;
+    z-index:1;
+    right: 0;
+    background-color: white;
+    height: 100%;
+    width: 400px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3), inset 0 -3px 3px rgba(0,0,0,0.1);
+    overflow: scroll;
+}
+
+.comment-content {
+    border-bottom: 1px solid rgba(117, 117, 117, .3);
+    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-left: 10px;
+    margin: 3px 3px;
+    font-size: 16px;
+}
+
+#comments-container {
+    margin-top: 50px;
+}
+
+#responses {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#close-comments, #close-comments:active {
+    font-size: 18px;
+    outline: none;
+}
+
+#text-buttons {
+    display: none;
+    justify-content: flex-end;
+}
+
+.text-buttons {
+    padding: 7px 10px;
+    margin: 20px 10px 20px 10px;
+    font-size: 14px;
+}
+
+#cancel, #cancel:active {
+    background: none;
+    border: none;
+    outline: none;
+}
+
+#respond, #respond:active {
+    padding: 7px 10px;
+    margin: 20px 10px 20px 10px;
+    border: none;
+    background-color: rgb(28, 133, 71, 0.5);
+    border-radius: 5px;
+    color: white;
+    outline: none;
+}
+
+.side-bar {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    position: fixed;
+    z-index: 501;
+    top: 1%;
+    left: 8%;
+    background-color: white;
+}
+
+.side-bar > div {
+    margin-top: 15px;
+}
+
+.side-bar > div > button {
+    align-items: center;
+    margin-right: 5px;
+    border: 0;
+    outline: 0;
+    background-color: white;
+}
+
+.side-bar > div > button#bookmark {
+    padding-top: 2px;
+}
+
+#clap{
+    padding: 1px;
+}
+
+#comdnt{
+    padding: 1px;
+}
+
+.clapCounter {
+    font-size: 15px;
+    color:  rgba(0, 0, 0, 0.54);
+    position: fixed;
+    top: 3.75%;
+}
+
+.commentCounter {
+    font-size: 15px;
+    color:  rgba(0, 0, 0, 0.54);
+    position: fixed;
+    top: 8.5%
+}
+
+div.wrapper-signature {
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* div.wrapper-signature > div {
+    display: inline-block;
+} */
+
+#decrease-clap {
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 5px;
+    border:0;
+    outline: 0;
+    font-weight: 500;
+}
+
+button#signature-clap {
+    align-items: center;
+    margin-right: 5px;
+    border: 0;
+    outline: 0;
+    background-color: white;
+}
+
+button#signature-comment {
+    align-items: center;
+    border: 0;
+    outline: 0;
+    background-color: white;
+}
+
+#sigClapCounter {
+    font-size: 15px;
+    color:  rgba(0, 0, 0, 0.54);
+}
+
+#sigCommentCounter {
+    font-size: 15px;
+    color:  rgba(0, 0, 0, 0.54);
+}
+
+button#signature-bookmark {
+    align-items: center;
+    margin-left: 5px;
+    border: 0;
+    outline: 0;
+    background-color: white;
 }

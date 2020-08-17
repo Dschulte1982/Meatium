@@ -2,21 +2,21 @@ header {
     height: 100px;
     background-color: rgba(255,255,255,.95);
     display: block;
-    width: 80%;
+    width: 90%;
     z-index: 500;
     padding: 20px 20px;
 }
 
-.logo {
+.logo > a {
     float: left;
     font-size: 30px;
     font-weight: bolder ;
     vertical-align: top;
-    margin-left: 300px;
+    margin-left: 210px;
 }
 
 
-button#bookmarks {
+img#bookmarks {
     box-sizing: border-box;
     float: right;
     justify-content: right;
@@ -29,7 +29,7 @@ button#bookmarks {
 }
 
 
-button#notifications {
+img#notifications {
     box-sizing: border-box;
     float: right;
     justify-content: right;
@@ -41,7 +41,7 @@ button#notifications {
     outline: 0;
 }
 
-button#upgrade {
+img#magnify-glass {
     float: right;
     justify-content: right;
     color: rgb(41,41,41);
@@ -64,18 +64,33 @@ img#user-profile {
     outline: 0;
 }
 
+div.wrapper-nav > img {
+    padding: 5px;
+}
+
+div.wrapper-nav-categories {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
 nav {
     text-align: center;
     z-index: 500;
     height: 50px;
     padding-top: 20px;
     padding-bottom: 20px;
+    margin: 0px
 }
 
-nav > a {
+div.wrapper-nav-split > a {
     padding: 15px;
     font-size: 15px;
     line-height: 20px;
+}
+
+div.wrapper-nav-split {
+    padding: 3px;
 }
 
 a.main {
@@ -91,7 +106,7 @@ div#articles {
     /* flex-direction: column; */
     grid-template-columns: 3fr 2fr;
     grid-gap: 1em;
-    margin-left: 160px;
+    margin-left: 260px;
     margin-top: 30px;
     font-size: 50px;
 }
@@ -130,8 +145,7 @@ div.image-container {
 
 div#bottom-border {
     border-top: 1px solid rgba(0,0,0,.15);
-    /* margin-left: 500px;
-    margin-right: 500px; */
+    width: 285px;
 
 }
 
@@ -156,8 +170,17 @@ div#bottom-border {
     font-size: 24px;
     color: rgba(0,0,0,.84);
     font-weight: 600;
+}
 
 
+.wrapper {
+    height: 180px;
+}
+
+.article {
+    margin-left: 120px;
+    margin-right: 300px;
+    margin-bottom: 80px;
 }
 
 #popular {

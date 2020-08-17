@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       Article.belongsTo(models.User, { foreignKey: 'authorId' });
       Article.belongsTo(models.Category, { foreignKey: 'categoryId' });
       Article.hasMany(models.Like, { foreignKey: 'articleId' });
+      Article.hasMany(models.Comment, {foreignKey: 'articleId'});
       Article.belongsToMany(models.User, {
         through: 'Like',
         as: 'articleLikes',
