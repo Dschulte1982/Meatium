@@ -37,42 +37,7 @@ const createStoryLi = (story) => {
         </div>
       </div>
     </div>
-  `
-
-
-  // `
-  //   <li>
-  //     <div class="story">
-  //       <a href="/stories/${story.id}">
-  //         <div class="story-headers">
-  //           <h3 class ="story-title">${story.title}</h3>
-  //           <div class="story-byline">
-  //             <p>An interesting byline goes here</p>
-  //           </div>
-  //         </div>
-  //       </a>
-  //       <div class="author-category">
-  //         <p>
-  //           <a href="/users/${story.authorId}">${story.User.username}</a>
-  //           in
-  //           <a href="/categories/${story.categoryId}">${story.Category.name}</a>
-  //         </p>
-  //       </div>
-  //       <div class="story-info">
-  //         <p>${timestamp} * 5 min read</p>
-  //       </div>
-  //       <div class="dropdown-button">
-  //         <i class="fas fa-chevron-circle-down"></i>
-  //       </div>
-  //       <ul class="dropdown-menu" style="display: none">
-  //         <li><button class="delete" data-id=${story.id}>Delete</button></li>
-  //       </ul>
-  //       <div class="story-image">
-  //         <img src="${story.imagePath}">
-  //       </div>
-  //     </div>
-  //   </li>
-  // `;
+  `;
 }
 
 const populateStoryList = async () => {
