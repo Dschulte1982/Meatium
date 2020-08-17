@@ -22,6 +22,7 @@ let commentsChecked = false;
 clapButton.addEventListener('click', e => {
   clapCount += 1;
   clapText.innerHTML = `<span class='clapCounter'>${clapCount}</span>`;
+  sigClapText.innerHTML = `<span id='sigClapCounter'>${clapCount} claps</span>`;
 });
 
 commentText.addEventListener('click', e => {
@@ -55,6 +56,7 @@ commentCloseButton.addEventListener('click', e => {
 
 sigClapButton.addEventListener('click', e => {
   clapCount += 1;
+  clapText.innerHTML = `<span class='clapCounter'>${clapCount}</span>`;
   sigClapText.innerHTML = `<span id='sigClapCounter'>${clapCount} claps</span>`;
 });
 
