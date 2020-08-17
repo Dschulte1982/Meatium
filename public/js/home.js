@@ -50,24 +50,10 @@ const populateStoryList = async () => {
     storiesList.innerHTML += storyLi;
   }
 
-  const storyLis = document.querySelectorAll(".stories-list > a");
-  const storyDropdownButtons = document.querySelectorAll(".stories-list .dropdown-button");
-  // const storyModals = document.querySelectorAll(".stories-list .modal-background");
-  const deleteButtons = document.querySelectorAll(".stories-list .delete");
-  const storyDropdowns = document.querySelectorAll(".stories-list .dropdown-menu");
-
-  //here is where we will add event listeners on the dropdown menu button and delete button therein.
-  // for (let i = 0; i < storyLis.length; i++) {
-  //   const storyLi = storyLis[i];
-  //   const storyDropdownButton = storyDropdownButtons[i];
-  //   // const storyModal = storyModals[i];
-  //   const deleteButton = deleteButtons[i];
-  //   const storyDropdown = storyDropdowns[i];
-
-
-  // };
 
 };
 
 
 populateStoryList();
+
+const userProfile = document.querySelector('#user-profile');
