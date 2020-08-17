@@ -108,7 +108,7 @@ const createStory = (story) => {
                   <img class="profile-pic" src="/assets/profile-pics/anonymous-profile-pic.jpg"
                     <div class="story-user">
                       <div class="story-user-follow">
-                        <a href="users/${story.User.id}">${story.User.username}</a>
+                        <a href="../users/${story.authorId}">${story.User.username}</a>
                         <button type="button" class="author-follow-button">Follow</button>
                       </div>
                       <div class="story-date-length">${timestamp} • 5 min</div>
