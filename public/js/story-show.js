@@ -17,21 +17,25 @@ let commentCount = 0;
 clapButton.addEventListener('click', e => {
   clapCount += 1;
   clapText.innerHTML = `<span class='clapCounter'>${clapCount}</span>`;
+  sigClapText.innerHTML = `<span id='sigClapCounter'>${clapCount} claps</span>`;
 });
 
 commentButton.addEventListener('click', e => {
   commentCount += 1;
   commentText.innerHTML = `<span class='commentCounter'>${commentCount}</span>`;
+  sigCommentText.innerHTML = `<span id='sigCommentCounter'>${commentCount} comments</span>`;
 });
 
 sigClapButton.addEventListener('click', e => {
   clapCount += 1;
+  clapText.innerHTML = `<span class='clapCounter'>${clapCount}</span>`;
   sigClapText.innerHTML = `<span id='sigClapCounter'>${clapCount} claps</span>`;
 });
 
 sigCommentButton.addEventListener('click', e => {
   commentCount += 1;
   sigCommentText.innerHTML = `<span id='sigCommentCounter'>${commentCount} comments</span>`;
+  commentText.innerHTML = `<span class='commentCounter'>${commentCount}</span>`;
 });
 
 decreaseClapButton.addEventListener('click', e => {

@@ -7,7 +7,7 @@ header {
     padding: 20px 20px;
 }
 
-.logo {
+.logo > a {
     float: left;
     font-size: 30px;
     font-weight: bolder ;
@@ -106,7 +106,7 @@ div#articles {
     /* flex-direction: column; */
     grid-template-columns: 3fr 2fr;
     grid-gap: 1em;
-    margin-left: 160px;
+    margin-left: 260px;
     margin-top: 30px;
     font-size: 50px;
 }
@@ -177,7 +177,8 @@ div#bottom-border {
 
 .article {
     margin-left: 120px;
-    margin-right: 100px;
+    margin-right: 300px;
+    margin-bottom: 80px;
 }
 
 #popular {
