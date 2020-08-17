@@ -38,3 +38,11 @@ Below is an overview of the MVPs we intend to implement with this project, as we
 *Bookmarks*
 
 * As a busy reader with demands on my time, I want to be able to bookmark an article for reading later so that it doesn't get buried in the feed of new articles coming in.
+
+# Meatium
+A news and information website for food-lovers around the world.
+
+## Team Members
+* Project Lead: Dustin Schulte
+* Model Lead: Will MacCarty
+* UX Lead: Michelle Zhang
