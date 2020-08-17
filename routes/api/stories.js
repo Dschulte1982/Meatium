@@ -7,7 +7,6 @@ const db = require('../../db/models');
 const { Article, User, Category, Comment } = db;
 
 const { check } = require('express-validator');
-const { restart } = require('nodemon');
 
 
 const router = express.Router();
