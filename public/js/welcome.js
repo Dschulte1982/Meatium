@@ -26,7 +26,8 @@ signUpLinkButton.addEventListener('click', e => {
   if (signup.style.display = 'flex') {
     signup.style.display = 'none';
   }
-  document.getElementById('login-form').style.display = "flex";
+  document.getElementById('login-form').style.display = "none";
+  document.getElementById('signup-form').style.display = "flex";
 });
 
 getStartedNav.addEventListener('click', e => {
@@ -42,7 +43,8 @@ signInLinkButton.addEventListener('click', e => {
   if (login.style.display = 'flex') {
     login.style.display = 'none';
   }
-  document.getElementById('signup-form').style.display = "flex";
+  document.getElementById('signup-form').style.display = "none";
+  document.getElementById('login-form').style.display = "flex";
 });
 
 getStartedMain.addEventListener('click', e => {

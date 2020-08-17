@@ -7,7 +7,7 @@ header {
     padding: 20px 20px;
 }
 
-.logo {
+.logo > a {
     float: left;
     font-size: 30px;
     font-weight: bolder ;
