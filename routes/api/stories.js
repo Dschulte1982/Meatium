@@ -48,7 +48,7 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
     include: [
       {
         model: User,
-        attributes: ['username'],
+        attributes: ['username', 'id'],
       },
       {
         model: Category,
@@ -56,7 +56,7 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
       },
       {
         model: Comment,
-        attributes: ['text'],
+        attributes: ['text', 'userId'],
       },
     ],
   });
@@ -86,6 +86,23 @@ router.post('/', csrfProtection, validateStory, asyncHandler(async (req, res) =>
 
   res.json({ story });
 }));
+
+router.post('/comments', asyncHandler(async (req, res) => {
+  const { articleId, text } = req.body;
+  const userId = req.user.id;
+
+
+  const newComment = await Comment.create({ articleId, userId, text });
+  const comment = await Comment.findByPk(newComment.id, {
+    include: [
+      {
+      model: User,
+      attributes: ['username'],
+    },
+    ]
+  })
+  res.json({ comment });
+}))
 
 router.delete('/:id(\\d+)', asyncHandler( async (req, res) => {
   const story = await Article.findByPk(req.params.id);

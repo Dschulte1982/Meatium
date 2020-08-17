@@ -7,6 +7,7 @@ header {
     padding: 20px 20px;
 }
 
+
 .logo > a {
     float: left;
     font-size: 30px;
@@ -174,11 +175,49 @@ div.story-date-length {
     font-size: 18px;
 }
 
-#comment-text-area {
-    margin-top: 50px;
+#close-comments {
+    float: right;
+    margin-top: 5px;
+    margin-right: 5px;
+    background: none;
+    border: none;
+}
+
+#user-profile {
+    width: 50px;
+    height: 50px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+
+.user-image {
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.user-name {
     margin-left: 10px;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+#comment-text-area {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.3), inset 0 -3px 3px rgba(0,0,0,0.1);
     outline: none;
+}
+
+#text-wrapper {
+    display: flex;
+    justify-content: center;
 }
 
 #comment-text {
@@ -186,14 +225,16 @@ div.story-date-length {
     resize: none;
     outline: none;
     border: none;
+    width: 300px;
+    height: 50px;
+    font-size: 12px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 15px;
+    color: black;
 }
 
 #comments {
-    /* margin: auto;
-    width: 450px;
-    padding-top: 50px;
-    padding-bottom: 50px; */
-    /* display: inline-block; */
+    display: none;
     position: fixed;
     z-index:1;
     right: 0;
@@ -201,12 +242,16 @@ div.story-date-length {
     height: 100%;
     width: 400px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.3), inset 0 -3px 3px rgba(0,0,0,0.1);
+    overflow: scroll;
 }
 
 .comment-content {
     border-bottom: 1px solid rgba(117, 117, 117, .3);
-    padding: 10px;
-    margin: 3px 3px
+    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-left: 10px;
+    margin: 3px 3px;
+    font-size: 16px;
 }
 
 #comments-container {
@@ -218,10 +263,16 @@ div.story-date-length {
     margin-bottom: 20px;
     margin-left: 20px;
     font-size: 20px;
+    font-weight: bold;
+}
+
+#close-comments, #close-comments:active {
+    font-size: 18px;
+    outline: none;
 }
 
 #text-buttons {
-    display: flex;
+    display: none;
     justify-content: flex-end;
 }
 
@@ -231,18 +282,21 @@ div.story-date-length {
     font-size: 14px;
 }
 
-#cancel {
+#cancel, #cancel:active {
     background: none;
     border: none;
+    outline: none;
 }
 
-#respond {
+#respond, #respond:active {
     padding: 7px 10px;
     margin: 20px 10px 20px 10px;
     border: none;
-    background-color: rgba(3, 168, 124, 0.2);
+    background-color: rgb(28, 133, 71, 0.5);
     border-radius: 5px;
     color: white;
+    outline: none;
+}
 
 .side-bar {
     display: flex;
@@ -275,7 +329,7 @@ div.story-date-length {
     padding: 1px;
 }
 
-#comment{
+#comdnt{
     padding: 1px;
 }
 
