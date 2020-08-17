@@ -16,6 +16,7 @@ const textButtons = document.getElementById('text-buttons');
 const bottomCommentButton = document.getElementById('comment');
 const respondButton = document.getElementById('respond');
 
+
 let clapCount = 0;
 let commentsChecked = false;
 
@@ -28,11 +29,14 @@ clapButton.addEventListener('click', e => {
 commentText.addEventListener('click', e => {
   textButtons.style.display = 'flex';
   textButtons.style.justifyContent = 'flex-end';
+  document.getElementById('user-profile-comments').style.display = 'block';
+  commentText.classList.add('comment-text-hidden');
 })
 
 commentCancelButton.addEventListener('click', e => {
   textButtons.style.display = 'none';
   textButtons.style.outline = 'none';
+  document.getElementById('user-profile-comments').style.display = 'none';
 })
 
 commentButton.addEventListener('click', e => {
@@ -42,7 +46,6 @@ commentButton.addEventListener('click', e => {
     commentsBox.style.display = 'block'
     commentsChecked = true;
   } else if (commentsChecked === true) {
-    console.log('hide')
     commentsBox.style.display = 'none'
     commentsChecked = false;
   }
@@ -138,7 +141,6 @@ const getComments = async (id) => {
 };
 
 const createComment = async (story) => {
-  console.log(story);
   const commentArray = story.Comments;
   let textArea = '';
   for (let i = 0; i < commentArray.length; i++) {
@@ -176,7 +178,6 @@ const populateStory = async () => {
   storyContainer.innerHTML += storyEle;
 
   const deleteButton = document.querySelector('.story-delete-button');
-  console.log('The deleteButton contains: ', deleteButton);
 
   deleteButton.addEventListener('click', async (e) => {
     e.preventDefault();
@@ -186,6 +187,24 @@ const populateStory = async () => {
 
     if (res.ok) window.location.href = '/home';
   });
+
+  const followButton = document.querySelector('.author-follow-button');
+  let followClicked = false;
+
+  followButton.addEventListener('click', async e => {
+    e.preventDefault();
+    if (!followClicked) {
+    followButton.classList.add('follow-button-clicked');
+    followButton.innerHTML = 'Following'
+    followButton.style.backgroundColor = 'rgb(44, 218, 102)';
+    followClicked = true;
+    } else if (followClicked) {
+      followButton.classList.remove('follow-button-clicked');
+      followButton.innerHTML = 'Follow'
+      followButton.style.backgroundColor = 'white';
+      followClicked = false;
+    }
+  })
 }
 
 const populateComments = async () => {
